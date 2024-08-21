@@ -1,0 +1,31 @@
+.wrapper-header{
+    background-color: #FFFCF3;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 37px 100px 37px 100px;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.header-logo{
+    height: 42px;
+    width: auto;
+}
+
+.header-right-box{
+    display: flex;
+    gap: 29px;
+    a{
+        text-decoration: none;
+        color: #000000;
+        font-size: 23px;
+        white-space: nowrap;
+        &:hover {
+            color: #06BC8F;
+        }
+    }
+}

@@ -1,0 +1,105 @@
+.above-the-fold-wrapper {
+    height: calc(100vh - 116px);
+    background-color: #FFFCF3;
+    padding: 0px 100px 0px 100px;
+    position: relative;
+}
+
+.above-the-fold-box {
+    display: flex;
+    margin-left: 100px;
+    margin-right: 100px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.above-the-fold-überschrift {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    h3 {
+        font-size: 128px;
+        margin: 0;
+        color: #000000;
+        line-height: 128px;
+        letter-spacing: -3.2px;
+        transform: scaleY(0.9);
+        font-weight: 800;
+    }
+}
+
+.margin-top-h3 {
+    margin-top: 10% !important;
+}
+
+.above-the-fold-initialien {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.horizontal-line {
+    width: 340px;
+    height: 3px;
+    background-color: black;
+}
+
+.initialien {
+    font-size: 48px;
+    line-height: 48px;
+    letter-spacing: -1px;
+    font-weight: 700;
+    color: #06BC8F;
+    transform: scaleY(0.9);
+    white-space: nowrap;
+}
+
+.bottom-box-email-scrolldown{
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.email-and-scroll-down-box {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1440px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 20px 100px; /* Abstand von 100px auf beiden Seiten */
+    margin: 0 auto;
+    box-sizing: border-box; /* Stellt sicher, dass Padding zur Breite hinzugezählt wird */
+}
+
+
+.email-position-absolute {
+    display: flex;
+    transform: rotate(-90deg);
+    font-size: 22px;
+    line-height: 22px;
+    font-weight: 300;
+}
+
+.scroll-down-position-absolute {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+
+    span {
+        line-height: 22px;
+        font-size: 22px;
+        transform: scaleY(0.9);
+        letter-spacing: -0.5px;
+        font-weight: 300;
+    }
+}
