@@ -1,0 +1,34 @@
+.wrapper {
+    background-color: #FFFCF3;
+    padding: 0px 100px 0px 100px;
+    position: relative;
+    padding-top: 100px;
+}
+
+.border-black{
+    height: 500px;
+    width: 100%;
+    border: 3px solid black;
+    margin-bottom: 100px;
+    position: relative;
+    h3{
+        position: absolute;
+        top: -8%;
+        left: 50%;
+        z-index: 999;
+        font-weight: 800;
+        font-size: 78px;
+        line-height: 78px;
+        margin: 0;
+        transform: translateX(-50%);
+        background-color: #FFFCF3;
+        padding: 0px 10% 0px 10%;
+        letter-spacing: -0.78px;
+        white-space: nowrap;
+        &:hover {
+            color: #06BC8F;
+        }
+    }
+}
+
+

@@ -61,7 +61,7 @@
     white-space: nowrap;
 }
 
-.bottom-box-email-scrolldown{
+.bottom-box-email-scrolldown {
     max-width: 1440px;
     margin: 0 auto;
 }
@@ -72,29 +72,73 @@
     width: 100%;
     max-width: 1440px;
     position: absolute;
-    bottom: 0;
+    bottom: 5%;
     left: 50%;
     transform: translateX(-50%);
-    padding: 20px 100px; /* Abstand von 100px auf beiden Seiten */
+    padding: 20px 100px;
     margin: 0 auto;
-    box-sizing: border-box; /* Stellt sicher, dass Padding zur Breite hinzugezählt wird */
+    box-sizing: border-box;
 }
 
 
 .email-position-absolute {
     display: flex;
-    transform: rotate(-90deg);
+    position: absolute;
     font-size: 22px;
     line-height: 22px;
     font-weight: 300;
+    left: 0;
+    bottom: 0;
+    padding-left: 100px;
+}
+
+.position-absolute-right{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    gap: 24px;
+    right: 0;
+    bottom: 0;
+    padding-right: 100px;   
 }
 
 .scroll-down-position-absolute {
+    position: relative;
+    height: 80px; // Höhe der Div für den sichtbaren Bereich
+    overflow: hidden; // Pfeil nur sichtbar, wenn innerhalb der Div
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 6px;
+  
+    img {
+        position: absolute;
+        top: -21px;
+        animation: arrowScroll 1.5s linear infinite;
+        height: 160px;
+        width: 96px;
+    }
+  }
 
+  // Keyframes für die Animation
+@keyframes arrowScroll {
+    0% {
+      transform: translateY(-100%); // Start über der Div, nicht sichtbar
+    }
+    50% {
+      transform: translateY(0); // Mitte, voll sichtbar
+    }
+    100% {
+      transform: translateY(100%); // Unten, wieder nicht sichtbar
+    }
+  }
+
+.scroll-down-position-absolute-span{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
     span {
         line-height: 22px;
         font-size: 22px;
@@ -103,3 +147,19 @@
         font-weight: 300;
     }
 }
+
+.bottom-box{
+    display: flex;
+    position: absolute;
+    justify-content: space-between;
+    max-width: 1440px;
+    left: 50%;
+    transform: translateX(-50%);
+    align-items: center;
+    width: 100%;
+    bottom: 5%;
+}
+
+
+
+
