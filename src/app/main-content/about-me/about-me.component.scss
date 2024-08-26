@@ -1,6 +1,5 @@
 .background-div{
     background-color: #FFFCF3;
-    height: 119vh;
 }
 
 .about-me-wrapper{
@@ -94,6 +93,7 @@
     display: flex;
     justify-content: flex-end;
     position: relative; /* Stelle sicher, dass die Position relativ ist, um die Animation korrekt auszuführen */
+    padding-bottom: 8%;
     
     img {
         position: relative;
@@ -101,6 +101,7 @@
         transform: translate(0, 0); /* Standardzustand */
         transition-delay: 0.3s; /* Verzögerung der Transition um 1 Sekunde */
         z-index: 999;
+        width: 24%;
 
     }
 

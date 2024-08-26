@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 
 interface Skill {
   name: string;
@@ -12,7 +12,7 @@ interface Skill {
   templateUrl: './my-skills.component.html',
   styleUrl: './my-skills.component.scss'
 })
-export class MySkillsComponent {
+export class MySkillsComponent implements AfterViewInit {
 
   skillsList: Skill[] = [
     {
@@ -57,4 +57,21 @@ export class MySkillsComponent {
     }
   ];
   
+
+  @ViewChild('aboutMeBox') aboutMeBox!: ElementRef;
+
+  constructor() {}
+
+  ngAfterViewInit(): void {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Wenn das Element sichtbar wird, füge die Klasse 'visible' hinzu
+          this.aboutMeBox.nativeElement.classList.add('visible');
+        }
+      });
+    });
+
+    observer.observe(this.aboutMeBox.nativeElement);
+  }
 }
