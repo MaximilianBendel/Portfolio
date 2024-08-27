@@ -1,8 +1,16 @@
-.wrapper {
+.background-color{
     background-color: #FFFCF3;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wrapper {
     padding: 0px 100px 0px 100px;
     position: relative;
     padding-top: 120px;
+    max-width: 1440px;
 }
 
 .border-black {
@@ -54,7 +62,7 @@
             color: #06BC8F;
         }
         img{
-            animation: pulse 0.8s infinite alternate;
+            animation: pulse 1.2s infinite alternate;
         };
     }
 
@@ -92,6 +100,7 @@
 .bottom-box-text {
     display: flex;
     align-items: flex-end;
+    gap: 15px;
 
     img {
         height: 75px;
@@ -114,9 +123,10 @@
         font-size: 22px;
         line-height: 26.4px;
         height: 30px; // Feste Höhe für den Button
-        width: 150px; // Feste Breite für den Button
+        width: 125px; // Feste Breite für den Button
         cursor: pointer;
         transition: font-weight 100ms ease-in;
+        white-space: nowrap;
 
         // Keyframe-Animationen definieren
         @keyframes underlineEffect {

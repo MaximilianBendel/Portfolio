@@ -1,32 +1,34 @@
-<div class="wrapper">
-    <div class="border-black">
-        <h3 class="fontSyne">
-            My Skills
-        </h3>
-        <div class="middle-box">
-            @for (item of skillsList; track item.name; let index = $index) {
-            <div class="skill-box">
-                <img src="{{item.img}}" alt="">
-                <span class="fontOverpass">{{item.name}}</span>
+<div class="background-color">
+    <div class="wrapper">
+        <div class="border-black">
+            <h3 class="fontSyne">
+                My Skills
+            </h3>
+            <div class="middle-box">
+                @for (item of skillsList; track item.name; let index = $index) {
+                <div class="skill-box">
+                    <img src="{{item.img}}" alt="">
+                    <span class="fontOverpass">{{item.name}}</span>
+                </div>
+                }
             </div>
-            }
-        </div>
-        <div class="bottom-box">
-            <img src="assets/images/images_my_skills/logo-learning.png" alt="">
-            <div class="bottom-box-text">
-                <span class="fontOverpass">
-                    Dont see the skill you want ?
-                </span>
-                <button class="fontOverpass">
-                    Contact me
-                </button>
-                <span class="fontOverpass">
-                    Im always ready to learn !
-                </span>
+            <div class="bottom-box">
+                <img src="assets/images/images_my_skills/logo-learning.png" alt="">
+                <div class="bottom-box-text">
+                    <span class="fontOverpass">
+                        Dont see the skill you want ?
+                    </span>
+                    <button class="fontOverpass">
+                        Contact me
+                    </button>
+                    <span class="fontOverpass">
+                        Im always ready to learn !
+                    </span>
+                </div>
             </div>
         </div>
-    </div>
-    <div #aboutMeBox class="about-me-box-finish">
-        <img src="assets/images/images_about_me/arrowbottom.png" alt="">
+        <div #aboutMeBox class="about-me-box-finish">
+            <img src="assets/images/images_about_me/arrowbottom.png" alt="">
+        </div>
     </div>
 </div>
