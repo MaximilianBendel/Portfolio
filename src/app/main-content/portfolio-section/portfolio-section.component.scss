@@ -34,9 +34,85 @@
     position: relative;
     justify-content: space-between;
 
+    &.reverse {
+        flex-direction: row-reverse;
+
+        .text-align-end {
+            text-align: start;
+        }
+
+        .arrow-image {
+            width: 15%;
+            position: absolute;
+            left: -10%;
+            bottom: 29%;
+            z-index: 999;
+            opacity: 0;
+            transition: transform 400ms ease; // Übergangseffekte für Sichtbarkeit und Rotation
+        }
+
+         // Für die umgekehrte Box
+         &:hover .img-border::before {
+            border-color: black;
+            transform: translate(-3%, 6%); // Verschieben in die entgegengesetzte Richtung
+            z-index: 999;
+        }
+    }
+
+    .arrow-image {
+        width: 15%;
+        position: absolute;
+        right: -10%;
+        bottom: 29%;
+        z-index: 999;
+        opacity: 0;
+        transition: transform 400ms ease; // Übergangseffekte für Sichtbarkeit und Rotation
+    }
+
+    &:hover .arrow-image {
+        opacity: 1;  // Bild beim Hover sichtbar machen
+        transform: rotate(-135deg) scale(1.2); // Bild um -135 Grad drehen (nach rechts oben)
+    }
+
     img {
-        width: 45%;
-        padding-top: 5%;
+        width: 100%;
+        filter: grayscale(100%); // Standard: Bild ist schwarz-weiß
+        transition: filter 300ms ease; // Übergang bei Filteränderung
+    }
+
+    // Hover-Effekt auf das Bild anwenden
+    &:hover img {
+        filter: grayscale(0); // Beim Hover wird das Bild wieder farbig
+    }
+
+    &:hover .project-box-right-box-bottom {
+        opacity: 1; // Macht die rechte Box vollständig sichtbar
+    }
+
+    .img-border {
+        position: relative;
+        width: 40%;
+        margin-top: 5%;
+        height: 100%;
+        transition: border 300ms ease;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 3px solid transparent; // Unsichtbare Border, um den Platz zu reservieren
+            pointer-events: none;
+        }
+    }
+
+    // Verschieben und Border-Farbe ändern beim Hover
+    &:hover .img-border::before {
+        border-color: black; // Border-Farbe beim Hover
+        transform: translate(3%, 6%); // Leichtes Verschieben nach rechts und unten
+        z-index: 999;
     }
 
     span {
@@ -47,7 +123,8 @@
     }
 }
 
-.text-align-end{
+
+.text-align-end {
     text-align: end;
 }
 
@@ -59,16 +136,22 @@
     justify-content: space-around;
 }
 
-.project-box-right-box-bottom{
+.project-box-right-box-bottom {
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 12px;
+    opacity: 0; // Standardmäßig unsichtbar
+    transform: translateX(-32%); // Startposition: 50px nach links verschoben
+    transition: opacity 600ms ease, transform 600ms ease; // Übergang für Opacity und Position
+
+
     h3 {
         font-size: 45px;
         line-height: 54px;
         margin: 0;
     }
+
     h4 {
         font-size: 23px;
         line-height: 27.6px;
@@ -76,9 +159,36 @@
         white-space: nowrap;
         margin: 0;
     }
-    p{
+
+    p {
         margin: 0;
         text-align: left;
         color: #000000;
+    }
+}
+
+// Beim Hover auf das übergeordnete Element die Animation auslösen
+.project-box:hover .project-box-right-box-bottom {
+    opacity: 1; // Sichtbar machen
+    transform: translateX(0); // Zur Standardposition zurückkehren (kein Offset mehr)
+}
+
+.project-box-right-box-bottom-links{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    a{
+        text-decoration: none;
+        color: #000000;
+        font-size: 22px;
+        border: 4px solid black;
+        width: 30%;
+        padding: 2% 0% 2% 0%;
+        text-align: center;
+        transition: width 300ms ease;
+        &:hover {
+            width: 35%;
+            font-weight: 500;
+        }
     }
 }
