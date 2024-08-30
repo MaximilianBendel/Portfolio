@@ -5,12 +5,12 @@
 .wrapper {
     padding: 0px 100px 0px 100px;
     position: relative;
-    padding-top: 120px;
     max-width: 1440px;
     justify-content: center;
     align-items: center;
     display: flex;
     flex-direction: column;
+    margin: 0 auto;
 
     h3 {
         font-size: 78px;
@@ -30,7 +30,6 @@
     display: flex;
     width: 100%;
     margin-top: 5%;
-    margin-bottom: 5%;
     position: relative;
     justify-content: space-between;
 
@@ -147,7 +146,7 @@
 
 
     h3 {
-        font-size: 45px;
+        font-size: 42px;
         line-height: 54px;
         margin: 0;
     }
@@ -158,6 +157,7 @@
         color: #00BC8F;
         white-space: nowrap;
         margin: 0;
+        white-space: nowrap;
     }
 
     p {
@@ -190,5 +190,26 @@
             width: 35%;
             font-weight: 500;
         }
+    }
+}
+
+.about-me-box-finish {
+    display: flex;
+    justify-content: flex-end;
+    position: relative; /* Stelle sicher, dass die Position relativ ist, um die Animation korrekt auszuführen */
+    width: 100%;
+    
+    img {
+        position: relative;
+        transition: transform 1s ease-out; /* Transition auf das img setzen */
+        transform: translate(0, 0); /* Standardzustand */
+        transition-delay: 0.3s; /* Verzögerung der Transition um 1 Sekunde */
+        z-index: 999;
+        width: 24%;
+
+    }
+
+    &.visible img {
+        transform: translate(-50px, 50px); /* Bewegung um 100px nach links und unten */
     }
 }

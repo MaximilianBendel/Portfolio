@@ -1,0 +1,61 @@
+.background-color {
+    background-color: #FFFCF3;
+    height: 100%;
+}
+
+.diagonal-background {
+    background-color: black;
+    /* Linke Seite Hintergrundfarbe */
+    height: 100vh;
+    clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 100%);
+    width: 100%;
+}
+
+.wrapper {
+    padding: 0px 100px 0px 100px;
+    position: relative;
+    max-width: 1440px;
+    align-items: center;
+    display: flex;
+    margin: 0 auto;
+    padding-top: 10%;
+    flex-direction: column;
+
+    h3 {
+        color: #FFFCF3;
+        font-weight: 800;
+        font-size: 78px;
+        line-height: 78px;
+    }
+}
+
+.box-headline {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.box-before-formular {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 24px;
+
+    p {
+        color: #FFFCF3;
+        margin: 0;
+    }
+
+    .box-before-formular-headline-1{
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 38.4px;
+        color: #00BC8F;
+    }
+
+    .box-before-formular-headline-2{
+        font-size: 22px;
+        line-height: 26.4px;
+    }
+}

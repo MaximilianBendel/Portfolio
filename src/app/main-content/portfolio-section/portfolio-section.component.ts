@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 
 
 @Component({
@@ -31,6 +31,43 @@ export class PortfolioSectionComponent {
       liveTestLink: 'https://your-live-link.com',
       imgSrc: 'assets/images/images_portfolio/join.png',
       arrowImgSrc: 'assets/images/images_portfolio/arrow-portfolio.png'
+    },
+    {
+      id: '03/04',
+      title: 'Weather App',
+      technologies: 'Vue.js | API Integration | CSS',
+      description: 'A weather forecasting app that uses an external API to fetch and display weather data for any location.',
+      githubLink: 'https://github.com/yourrepo/weatherapp',
+      liveTestLink: 'https://your-live-link.com',
+      imgSrc: 'assets/images/images_portfolio/join.png',
+      arrowImgSrc: 'assets/images/images_portfolio/arrow-portfolio.png'
+    },
+    {
+      id: '04/04',
+      title: 'E-Commerce Site',
+      technologies: 'Shopify | Liquid | JavaScript',
+      description: 'An e-commerce platform built with Shopify, including custom themes and functionalities for a seamless shopping experience.',
+      githubLink: 'https://github.com/yourrepo/ecommerce',
+      liveTestLink: 'https://your-live-link.com',
+      imgSrc: 'assets/images/images_portfolio/join.png',
+      arrowImgSrc: 'assets/images/images_portfolio/arrow-portfolio.png'
     }
   ];
+
+  @ViewChild('aboutMeBox') aboutMeBox!: ElementRef;
+
+  constructor() {}
+
+  ngAfterViewInit(): void {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // Wenn das Element sichtbar wird, füge die Klasse 'visible' hinzu
+          this.aboutMeBox.nativeElement.classList.add('visible');
+        }
+      });
+    });
+
+    observer.observe(this.aboutMeBox.nativeElement);
+  }
 }
