@@ -1,20 +1,91 @@
 <div class="background-color">
     <div class="diagonal-background">
         <div class="wrapper">
-                <div class="box-headline">
-                    <h3 class="fontSyne">
-                        Say Hi !
-                    </h3>
+            <div class="box-headline">
+                <h3 class="fontSyne">
+                    Say Hi !
+                </h3>
+            </div>
+            <div class="box-formular-all">
+                <div class="box-before-formular fontOverpass">
+                    <p class="box-before-formular-headline-1">
+                        Want to discuss a new project?
+                    </p>
+                    <p class="box-before-formular-headline-2">
+                        Say hello! let's discuss your ideas and make it happen
+                    </p>
                 </div>
-            <div class="box-before-formular fontOverpass">
-                <p class="box-before-formular-headline-1">
-                    Want to discuss a new project?
-                </p>
-                <p class="box-before-formular-headline-2">
-                    Say hello! let's discuss your ideas and make it happen
-                </p>
+                <div class="formular-box">
+                    <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm" class="fontOverpass" action="">
+                        <div class="box-input">
+                            <input [(ngModel)]="contactData.name" 
+                                   type="text" 
+                                   id="name" 
+                                   name="name" 
+                                   (focus)="isNameFocused = true" 
+                                   (blur)="isNameFocused = false" 
+                                   required #name="ngModel">
+                            <label for="name" 
+                                   [ngClass]="{
+                                       'label-when-input-focus': isNameFocused || contactData.name.length > 0,
+                                       'label-when-no-input-focus': !isNameFocused && contactData.name.length === 0
+                                   }">
+                                Name
+                            </label>
+                            @if(!name.valid && name.touched){
+                                <div class="alert">
+                                    <span>Please enter your Name</span>
+                                </div>
+                            }
+                        </div>
+                        
+                        <div class="box-input">
+                            <input [(ngModel)]="contactData.email" 
+                                   type="email" 
+                                   id="email" 
+                                   name="email" 
+                                   (focus)="isEmailFocused = true" 
+                                   (blur)="isEmailFocused = false" 
+                                   required
+                                   pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" #email="ngModel">
+                            <label for="email" 
+                                   [ngClass]="{
+                                       'label-when-input-focus': isEmailFocused || contactData.email.length > 0,
+                                       'label-when-no-input-focus': !isEmailFocused && contactData.email.length === 0
+                                   }">
+                                Email
+                            </label>
+                            @if(!email.valid && email.touched){
+                                <div class="alert">
+                                    <span>Please enter your Email</span>
+                                </div>
+                            }
+                        </div>
+                        
+                        <div class="box-textarea">
+                            <textarea [(ngModel)]="contactData.message" 
+                                      name="message" 
+                                      id="message" 
+                                      (focus)="isMessageFocused = true" 
+                                      (blur)="isMessageFocused = false" 
+                                      required #textarea="ngModel"></textarea>
+                            <label for="message" 
+                                   [ngClass]="{
+                                       'label-when-input-focus': isMessageFocused || contactData.message.length > 0,
+                                       'label-when-no-input-focus': !isMessageFocused && contactData.message.length === 0
+                                   }">
+                                Nachricht
+                            </label>
+                            @if(!textarea.valid && textarea.touched){
+                                <div class="alert-textarea">
+                                    <span>Please enter your Message</span>
+                                </div>
+                            }
+                        </div>
+                        <input class="submit-button" type="submit" value="Submit">
+                    </form>
+                </div>
             </div>
         </div>
     </div>
 </div>
-

@@ -1,5 +1,5 @@
 .above-the-fold-wrapper {
-    height: calc(100vh - 116px);
+    height: 100vh;
     background-color: #FFFCF3;
     padding: 0px 100px 0px 100px;
     position: relative;
@@ -14,6 +14,7 @@
     flex-direction: column;
     max-width: 1440px;
     margin: 0 auto;
+    padding-top: 15%;
 }
 
 .above-the-fold-überschrift {

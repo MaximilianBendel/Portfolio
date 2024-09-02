@@ -5,10 +5,10 @@
 
 .diagonal-background {
     background-color: black;
-    /* Linke Seite Hintergrundfarbe */
-    height: 100vh;
     clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 100%);
     width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
 }
 
 .wrapper {
@@ -35,6 +35,15 @@
     width: 100%;
 }
 
+.box-formular-all {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+}
+
 .box-before-formular {
     display: flex;
     justify-content: center;
@@ -47,15 +56,140 @@
         margin: 0;
     }
 
-    .box-before-formular-headline-1{
+    .box-before-formular-headline-1 {
         font-weight: 700;
         font-size: 32px;
         line-height: 38.4px;
         color: #00BC8F;
     }
 
-    .box-before-formular-headline-2{
+    .box-before-formular-headline-2 {
         font-size: 22px;
         line-height: 26.4px;
     }
 }
+
+.formular-box {
+    width: 617px;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 38px;
+
+    .box-input {
+        width: 100%;
+        color: #FFFCF3;
+        position: relative;
+
+        input {
+            height: 50px;
+            width: 100%;
+            color: #FFFCF3;
+            line-height: 19.2px;
+            font-size: 16px;
+            background-color: black;
+            border: none;
+            position: relative;
+            z-index: 1; // Ensure input is above background
+            padding: 15px 25px 15px 25px;
+            box-sizing: border-box;
+            border-bottom: 2px solid white;
+            &:focus {
+                outline: 2px solid white;
+                border-bottom: none;
+            }
+        }
+
+        label {
+            position: absolute;
+            transition: all 0.3s ease;
+        }
+
+        .label-when-no-input-focus {
+            top: 50%; /* Initially position the label in the middle of the input */
+            left: 2%;
+            z-index: 1; /* Ensure label is initially behind input */
+        }
+    
+        .label-when-input-focus {
+            top: -20%;
+            left: 2%;
+            background-color: black;
+            z-index: 900;
+            padding-left: 1%;
+            padding-right: 1%;
+            color: white;
+        }
+    }
+}
+
+.box-textarea {
+    width: 100%;
+    color: #FFFCF3;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    textarea {
+        background-color: black;
+        border: none;
+        color: #FFFCF3;
+        line-height: 19.2px;
+        font-size: 16px;
+        padding: 15px 25px 15px 25px;
+        box-sizing: border-box;
+        border-bottom: 2px solid white;
+
+        &:focus {
+            outline: 2px solid white;
+            border-bottom: none;
+        }
+    }
+
+    label {
+        position: absolute;
+        transition: all 0.3s ease; // Smooth transition
+    }
+
+    .label-when-no-input-focus {
+        top: 50%; // Initially position the label in the middle of the input
+        left: 2%;
+        z-index: 1; // Ensure label is initially behind input
+    }
+
+    .label-when-input-focus {
+        top: -20%;
+        left: 2%;
+        background-color: black;
+        z-index: 900;
+        padding-left: 1%;
+        padding-right: 1%;
+        color: white;
+    }
+}
+
+.alert {
+    display: flex;
+    /* width: 100%; */
+    margin-top: 1%;
+    /* margin-bottom: 5%; */
+    /* color: red; */
+    color: #e61c40;
+    span {
+        position: absolute;
+    }
+}
+
+.alert-textarea {
+    display: flex;
+    margin-top: 1%;
+    color: #e61c40;
+    span {
+        position: absolute;
+    }
+}
+
