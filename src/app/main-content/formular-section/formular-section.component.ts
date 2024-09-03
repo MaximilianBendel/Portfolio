@@ -14,22 +14,50 @@ export class FormularSectionComponent {
   contactData = {
     name: "",
     email: "",
-    message: ""
+    message: "",
+    agreeTerms: false
   }
 
-  onSubmit(ngForm: NgForm) {
-    if (ngForm.valid && ngForm.submitted) {
-      console.log(this.contactData);
-    this.contactData.name = "";
-    this.contactData.email = "";
-    this.contactData.message = "";
-    }
-  }
-  
   isNameFocused = false;
   isEmailFocused = false;
   isMessageFocused = false;
 
+  onSubmit(ngForm: NgForm) {
+    if (ngForm.valid) {
+      console.log(this.contactData);
+      this.resetArray();
+      this.resetForm(ngForm);
+      this.resetFocusStatus();
+    } else {
+      if (!this.contactData.agreeTerms) {
+        ngForm.controls['agreeTerms'].markAsTouched();
+      }
+    }
+  }
+
+  resetArray() {
+    this.contactData.name = "";
+    this.contactData.email = "";
+    this.contactData.message = "";
+    this.contactData.agreeTerms = false;
+  }
+
+  resetForm(ngForm: any) {
+    // Formular- und Fokusstatus zurücksetzen
+    ngForm.resetForm({
+      name: "",
+      email: "",
+      message: "",
+      agreeTerms: false
+    });
+  }
+
+  resetFocusStatus() {
+    // Fokusstatus zurücksetzen
+    this.isNameFocused = false;
+    this.isEmailFocused = false;
+    this.isMessageFocused = false;
+  }
 }
 
 

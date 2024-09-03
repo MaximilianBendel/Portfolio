@@ -66,6 +66,7 @@
     .box-before-formular-headline-2 {
         font-size: 22px;
         line-height: 26.4px;
+        white-space: nowrap;
     }
 }
 
@@ -84,6 +85,18 @@ form {
         width: 100%;
         color: #FFFCF3;
         position: relative;
+
+        img {
+            position: absolute;
+            z-index: 0;
+        }
+
+        .img-visible {
+            top: 50%;
+            transform: translateY(-50%);
+            right: 2%;
+            z-index: 2;
+        }
 
         input {
             height: 50px;
@@ -134,6 +147,18 @@ form {
     display: flex;
     flex-direction: column;
 
+    img {
+        position: absolute;
+        z-index: 0;
+    }
+
+    .img-visible {
+        top: 50%;
+        transform: translateY(-50%);
+        right: 2%;
+        z-index: 2;
+    }
+
     textarea {
         background-color: black;
         border: none;
@@ -143,6 +168,7 @@ form {
         padding: 15px 25px 15px 25px;
         box-sizing: border-box;
         border-bottom: 2px solid white;
+        z-index: 1;
 
         &:focus {
             outline: 2px solid white;
@@ -174,10 +200,7 @@ form {
 
 .alert {
     display: flex;
-    /* width: 100%; */
     margin-top: 1%;
-    /* margin-bottom: 5%; */
-    /* color: red; */
     color: #e61c40;
     span {
         position: absolute;
@@ -192,4 +215,88 @@ form {
         position: absolute;
     }
 }
+
+.box-for-privacy-submitbutton {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+
+    .box-for-checkbox{
+        display: flex;
+        position: relative;
+
+        .alert-text-checkbox{
+            color: #e61c40;
+        }
+    }
+
+    .alert-text-checkbox-active{
+        color: white !important;
+    }
+
+    .non-clickable {
+        color: white;
+
+        a {
+            color: #00BC8F;
+            text-decoration: none;
+            width: 120px;
+            pointer-events: auto; /* Aktiviert die Zeigerereignisse nur für den Link */
+
+            &:hover {
+                color: #00bc90d1;
+            }
+        }
+    }
+
+    label {
+        display: flex;
+        cursor: pointer;
+        pointer-events: none; /* Deaktiviert die Zeigerereignisse */
+
+
+        input[type="checkbox"] {
+            margin-right: 10px;
+            width: 20px;
+            height: 16px;
+            background-color: black;
+            border: 2px solid white;
+            appearance: none;
+            cursor: pointer;
+            pointer-events: auto; /* Aktiviert die Zeigerereignisse nur für den Link */
+
+
+            &:checked {
+                background-color: black;
+                border-color: white;
+            }
+
+            &:checked::before {
+                content: '';
+                display: block;
+                width: 3px;
+                height: 8px;
+                border: solid white;
+                border-width: 0 2px 2px 0;
+                transform: rotate(40deg);
+                position: relative;
+                left: 4px;
+                top: 0px;
+                z-index: 3;
+
+            }
+        }
+    }
+
+    .submit-button {
+        border: 4px solid #BBBBBB;
+        padding: 20px 60px 20px 60px;
+        background-color: black;
+        color: #BBBBBB;
+        font-size: 23px;
+        cursor: pointer;
+    }
+}
+
 
