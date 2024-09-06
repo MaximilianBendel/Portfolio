@@ -13,43 +13,23 @@ export class PortfolioSectionComponent {
 
   projects = [
     {
-      id: '01/04',
+      id: '01/02',
       title: 'Join',
       technologies: 'HTML | CSS | JavaScript | Firebase',
-      description: 'Task Manager inspired by the Kanban System. Create and organize tasks during drag and drop functions, assign users and categories.',
+      description: 'Task Management Web-App zur Organisation mehrerer Anwender, inspiriert vom Kanban-System. Erlaubt die Erstellung und Verwaltung von Aufgaben mit Drag´n Drop-Funktionalität.',
       githubLink: 'https://github.com/yourrepo/join',
       liveTestLink: 'https://your-live-link.com',
-      imgSrc: 'assets/images/images_portfolio/join.png',
+      imgSrc: 'assets/images/images_portfolio/join-project.png',
       arrowImgSrc: 'assets/images/images_portfolio/arrow-portfolio.png'
     },
     {
-      id: '02/04',
-      title: 'Project 2',
-      technologies: 'React | Node.js',
-      description: 'Description for project 2.',
+      id: '02/02',
+      title: 'El Pollo Loco',
+      technologies: 'JavaScript | HTML | CSS',
+      description: 'Web-Browser Spiel mit objektorientierter Programmierung, basierend auf HTML Canvas.',
       githubLink: 'https://github.com/yourrepo/project2',
       liveTestLink: 'https://your-live-link.com',
-      imgSrc: 'assets/images/images_portfolio/join.png',
-      arrowImgSrc: 'assets/images/images_portfolio/arrow-portfolio.png'
-    },
-    {
-      id: '03/04',
-      title: 'Weather App',
-      technologies: 'Vue.js | API Integration | CSS',
-      description: 'A weather forecasting app that uses an external API to fetch and display weather data for any location.',
-      githubLink: 'https://github.com/yourrepo/weatherapp',
-      liveTestLink: 'https://your-live-link.com',
-      imgSrc: 'assets/images/images_portfolio/join.png',
-      arrowImgSrc: 'assets/images/images_portfolio/arrow-portfolio.png'
-    },
-    {
-      id: '04/04',
-      title: 'E-Commerce Site',
-      technologies: 'Shopify | Liquid | JavaScript',
-      description: 'An e-commerce platform built with Shopify, including custom themes and functionalities for a seamless shopping experience.',
-      githubLink: 'https://github.com/yourrepo/ecommerce',
-      liveTestLink: 'https://your-live-link.com',
-      imgSrc: 'assets/images/images_portfolio/join.png',
+      imgSrc: 'assets/images/images_portfolio/ell-pollo-loco-png.png',
       arrowImgSrc: 'assets/images/images_portfolio/arrow-portfolio.png'
     }
   ];

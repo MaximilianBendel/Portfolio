@@ -2,6 +2,11 @@
     background-color: #FFFCF3;
 }
 
+#portfolio-section {
+    scroll-margin-top: 126px;
+    /* Passe den Wert an, je nach Höhe deines Headers */
+}
+
 .wrapper {
     padding: 0px 100px 0px 100px;
     position: relative;
@@ -32,6 +37,7 @@
     margin-top: 5%;
     position: relative;
     justify-content: space-between;
+    align-items: center;
 
     &.reverse {
         flex-direction: row-reverse;
@@ -45,16 +51,16 @@
             position: absolute;
             left: -10%;
             bottom: 29%;
-            z-index: 999;
+            z-index: 997;
             opacity: 0;
             transition: transform 400ms ease; // Übergangseffekte für Sichtbarkeit und Rotation
         }
 
-         // Für die umgekehrte Box
-         &:hover .img-border::before {
+        // Für die umgekehrte Box
+        &:hover .img-border::before {
             border-color: black;
             transform: translate(-3%, 6%); // Verschieben in die entgegengesetzte Richtung
-            z-index: 999;
+            z-index: 997;
         }
     }
 
@@ -63,13 +69,13 @@
         position: absolute;
         right: -10%;
         bottom: 29%;
-        z-index: 999;
+        z-index: 997;
         opacity: 0;
         transition: transform 400ms ease; // Übergangseffekte für Sichtbarkeit und Rotation
     }
 
     &:hover .arrow-image {
-        opacity: 1;  // Bild beim Hover sichtbar machen
+        opacity: 1; // Bild beim Hover sichtbar machen
         transform: rotate(-135deg) scale(1.2); // Bild um -135 Grad drehen (nach rechts oben)
     }
 
@@ -91,7 +97,6 @@
     .img-border {
         position: relative;
         width: 40%;
-        margin-top: 5%;
         height: 100%;
         transition: border 300ms ease;
 
@@ -111,7 +116,7 @@
     &:hover .img-border::before {
         border-color: black; // Border-Farbe beim Hover
         transform: translate(3%, 6%); // Leichtes Verschieben nach rechts und unten
-        z-index: 999;
+        z-index: 997;
     }
 
     span {
@@ -131,7 +136,7 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    width: 45%;
+    width: 50%;
     justify-content: space-around;
 }
 
@@ -173,11 +178,12 @@
     transform: translateX(0); // Zur Standardposition zurückkehren (kein Offset mehr)
 }
 
-.project-box-right-box-bottom-links{
+.project-box-right-box-bottom-links {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    a{
+
+    a {
         text-decoration: none;
         color: #000000;
         font-size: 22px;
@@ -186,6 +192,7 @@
         padding: 2% 0% 2% 0%;
         text-align: center;
         transition: width 300ms ease;
+
         &:hover {
             width: 35%;
             font-weight: 500;
@@ -196,20 +203,192 @@
 .about-me-box-finish {
     display: flex;
     justify-content: flex-end;
-    position: relative; /* Stelle sicher, dass die Position relativ ist, um die Animation korrekt auszuführen */
+    position: relative;
+    /* Stelle sicher, dass die Position relativ ist, um die Animation korrekt auszuführen */
     width: 100%;
-    
+
     img {
         position: relative;
-        transition: transform 1s ease-out; /* Transition auf das img setzen */
-        transform: translate(0, 0); /* Standardzustand */
-        transition-delay: 0.3s; /* Verzögerung der Transition um 1 Sekunde */
-        z-index: 999;
+        transition: transform 1s ease-out;
+        /* Transition auf das img setzen */
+        transform: translate(0, 0);
+        /* Standardzustand */
+        transition-delay: 0.3s;
+        /* Verzögerung der Transition um 1 Sekunde */
+        z-index: 997;
         width: 24%;
 
     }
 
     &.visible img {
-        transform: translate(-50px, 50px); /* Bewegung um 100px nach links und unten */
+        transform: translate(-50px, 50px);
+        /* Bewegung um 100px nach links und unten */
+    }
+}
+
+@media (max-width: 1024px) {
+    .wrapper {
+        padding: 0px 80px;
+    }
+}
+
+@media (max-width: 900px) {
+    .wrapper {
+        h3 {
+            font-size: 64px;
+        }
+    }
+
+    .project-box-right-box-bottom {
+        h3 {
+            font-size: 42px;
+            text-align: left;
+        }
+    }
+}
+
+@media (max-width: 850px) {
+    .project-box-right {
+        span {
+            font-size: 42px;
+        }
+    }
+
+    .project-box-right-box-bottom {
+        h3 {
+            font-size: 38px;
+        }
+
+        h4 {
+            font-size: 20px;
+        }
+    }
+
+    .project-box-right-box-bottom-links {
+        a {
+            font-size: 20px;
+        }
+    }
+}
+
+@media (max-width: 750px) {
+    .wrapper {
+        span {
+            text-align: center;
+        }
+    }
+
+    .project-box {
+        flex-direction: column !important;
+        align-items: center;
+        gap: 24px;
+
+        &.reverse {
+            .img-border {
+                width: 80%;
+            }
+    
+            .project-box-right {
+                width: 80%;
+                span {
+                    text-align: right;
+                }
+            }
+        }
+
+        .img-border {
+            width: 80%;
+        }
+
+        .project-box-right {
+            width: 80%;
+            span {
+                text-align: left;
+            }
+        }
+    }
+
+}
+
+@media (max-width: 620px) {
+    .wrapper {
+        h3 {
+            font-size: 44px;
+        }
+    }
+    .project-box-right-box-bottom {
+        h3 {
+            font-size: 38px;
+        }
+    }
+    .wrapper {
+        padding: 0px 60px;
+    }
+}
+
+@media (max-width: 520px) {
+    .wrapper {
+        padding: 0px 50px;
+    }
+    .project-box-right {
+        span {
+            font-size: 36px;
+        }
+    }
+    .project-box-right-box-bottom {
+        h3 {
+            font-size: 36px;
+        }
+        h4 {
+            font-size: 18px;
+        }
+    }
+    .project-box {
+        &.reverse {
+            .img-border {
+                width: 90%;
+            }
+    
+            .project-box-right {
+                width: 90%;
+            }
+        }
+        .img-border {
+            width: 90%;
+        }
+        .project-box-right {
+            width: 90%;
+        }
+    }
+    .project-box-right-box-bottom-links {
+        a {
+            font-size: 16px;
+            white-space: nowrap;
+        }
+    }
+}
+
+@media (max-width: 420px) {
+    .wrapper {
+        padding: 0px 40px;
+    }
+}
+
+@media (max-width: 370px) {
+    .wrapper {
+        padding: 0px 30px;
+    }
+    .project-box-right-box-bottom {
+        h3 {
+            font-size: 34px;
+        }
+        h4 {
+            font-size: 16px;
+        }
+    }
+}
+@media (max-width: 320px) {
+    .wrapper {
+        padding: 0px 25px;
     }
 }

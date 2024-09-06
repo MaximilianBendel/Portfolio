@@ -1,6 +1,13 @@
+* {
+  scroll-behavior: smooth;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
 body{
     margin: 0;
-    scroll-behavior: smooth;
     display: flex;
     flex-direction: column;
 }

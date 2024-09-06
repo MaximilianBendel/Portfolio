@@ -1,0 +1,86 @@
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 37px 100px 37px 100px;
+    max-width: 1440px;
+    margin: 0 auto;
+    background-color: black;
+    box-sizing: border-box;
+
+    span {
+        color: #FFFCF3;
+        font-size: 22px;
+        padding-top: 10px;
+    }
+}
+
+.social-links-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 18px;
+
+    .social-links {
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+
+        img {
+            width: 35px;
+            height: 35px;
+        }
+    }
+
+    .privacy-link {
+        display: flex;
+
+        a {
+            position: relative;
+            color: #FFFCF3;
+            text-decoration: none;
+            cursor: pointer;
+            transition: font-weight 100ms ease-in;
+
+            @keyframes underlineEffect {
+                0% {
+                    transform: scaleX(0); // Linie ist unsichtbar
+                    transform-origin: left; // Startet von links
+                }
+
+                25% {
+                    transform: scaleX(0.5); // Linie wächst bis zur Hälfte
+                    transform-origin: left;
+                }
+
+                100% {
+                    transform: scaleX(0.5); // Linie wächst von der Mitte bis zum Ende
+                    transform-origin: right;
+                }
+            }
+
+            &::before {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background: #00BC8F;
+                transform: scaleX(0); // Anfangs unsichtbar
+                transform-origin: left;
+            }
+
+            &:hover {
+                font-weight: 600;
+
+                &::before {
+                    animation: underlineEffect 200ms ease-out forwards; // Animation mit Keyframes
+                }
+            }
+        }
+    }
+}

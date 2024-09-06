@@ -1,18 +1,21 @@
 <div class="background-color">
     <div class="diagonal-background">
         <div class="wrapper">
-            <div class="box-headline">
+            <a class="img-arrow-to-top" href="#top">
+                <img src="assets/images/images_formular/7. arrow.png" alt="">
+            </a>
+            <div id="formular-section" class="box-headline">
                 <h3 class="fontSyne">
-                    Say Hi !
+                    Kontakt
                 </h3>
             </div>
             <div class="box-formular-all">
                 <div class="box-before-formular fontOverpass">
                     <p class="box-before-formular-headline-1">
-                        Want to discuss a new project?
+                        Möchten Sie ein Projekt diskutieren?
                     </p>
                     <p class="box-before-formular-headline-2">
-                        Say hello! let's discuss your ideas and make it happen
+                        Schicken Sie mir eine Nachricht und lassen Sie uns das Projekt angehen!
                     </p>
                 </div>
                 <div class="formular-box">
@@ -34,9 +37,9 @@
                             </label>
                             @if(!name.valid && name.touched){
                             <div class="alert">
-                                @if(contactData.name.length <= 3) {
-                                    <span>Please enter your Name and Lastname</span>
-                                }
+                                @if(contactData.name.length <= 3) { <span>Bitte geben Sie Ihren Vor- und Nachnamen
+                                    ein</span>
+                                    }
                             </div>
                             }
                         </div>
@@ -59,7 +62,7 @@
                             </label>
                             @if(!email.valid && email.touched){
                             <div class="alert">
-                                <span>Please enter your Email</span>
+                                <span>Bitte geben Sie Ihre E-Mail-Adresse ein</span>
                             </div>
                             }
                         </div>
@@ -82,22 +85,29 @@
                             </label>
                             @if(!textarea.valid && textarea.touched){
                             <div class="alert-textarea">
-                                <span>Please enter your Message</span>
+                                <span>Bitte geben Sie Ihre Nachricht ein</span>
                             </div>
                             }
                         </div>
                         <div class="box-for-privacy-submitbutton">
                             <div class="box-for-checkbox">
                                 <label>
-                                    <input #checkbox="ngModel" type="checkbox" [(ngModel)]="contactData.agreeTerms" name="agreeTerms" required>
+                                    <input #checkbox="ngModel" type="checkbox" [(ngModel)]="contactData.agreeTerms"
+                                        name="agreeTerms" required>
                                     <span class="non-clickable">
-                                        I've read the <a href="#">privacy policy</a> and agree to the processing of my data
-                                        as outlined. <span [ngClass]="{'alert-text-checkbox-active': checkbox.valid}" class="alert-text-checkbox">Please accept the privacy policy</span>
+
+                                        Ich habe die <a href="#">Datenschutzerklärung</a>
+                                        gelesen und stimme der Verarbeitung
+                                        meiner Daten zu
+                                        wie beschrieben. <span [ngClass]="{'alert-text-checkbox-active': checkbox.valid}"
+                                            class="alert-text-checkbox">
+                                            Bitte akzeptieren Sie die Datenschutzerklärung</span>
                                     </span>
                                 </label>
                             </div>
 
-                            <input class="submit-button fontOverpass" type="submit" value="Send message"
+                            <input [ngClass]="{'submit-button-valid': contactForm.valid}"
+                                class="submit-button fontOverpass" type="submit" value="Send message"
                                 [disabled]="!contactData.agreeTerms">
                         </div>
 

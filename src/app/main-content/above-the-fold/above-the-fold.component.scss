@@ -14,7 +14,11 @@
     flex-direction: column;
     max-width: 1440px;
     margin: 0 auto;
-    padding-top: 15%;
+    position: relative;
+    top: 15%;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 .above-the-fold-überschrift {
@@ -159,6 +163,147 @@
     align-items: center;
     width: 100%;
     bottom: 5%;
+}
+
+/* Media Queries für die verschiedenen Breiten */
+
+/* Für 1124px Breite */
+@media (max-width: 1124px) {
+    .above-the-fold-überschrift h3 {
+        font-size: 91px;
+        line-height: 91px;
+    }
+    .initialien {
+        font-size: 34px;
+        line-height: 34px;
+    }
+    .email-position-absolute {
+        font-size: 16px;
+        line-height: 16px;
+    }
+    .scroll-down-position-absolute-span span {
+        font-size: 16px;
+        line-height: 16px;
+    }
+}
+
+/* Für 720px Breite */
+@media (max-width: 770px) {
+    .above-the-fold-überschrift h3 {
+        font-size: 64px;
+        line-height: 64px;
+    }
+    .initialien {
+        font-size: 24px;
+        line-height: 24px;
+    }
+    .horizontal-line {
+        width: 282px;
+    }
+}
+
+/* Für 620px Breite */
+@media (max-width: 620px) {
+    .above-the-fold-überschrift h3 {
+        font-size: 55px;
+        line-height: 55px;
+    }
+    .initialien {
+        font-size: 21px;
+        line-height: 21px;
+    }
+    .horizontal-line {
+        width: 232px;
+    }
+}
+
+/* Für 520px Breite */
+@media (max-width: 520px) {
+    .above-the-fold-überschrift h3 {
+        font-size: 50px;
+        line-height: 50px;
+    }
+    .horizontal-line {
+        width: 192px;
+    }
+}
+
+/* Für 420px Breite */
+@media (max-width: 420px) {
+    .above-the-fold-überschrift h3 {
+        font-size: 42px;
+        line-height: 42px;
+    }
+    .email-position-absolute {
+        font-size: 14px;
+        line-height: 14px;
+    }
+    .scroll-down-position-absolute-span span {
+        font-size: 14px;
+        line-height: 14px;
+    }
+    .horizontal-line {
+        width: 138px;
+    }
+}
+
+/* Für 370px Breite */
+@media (max-width: 370px) {
+    .above-the-fold-überschrift h3 {
+        font-size: 37px;
+        line-height: 37px;
+    }
+    .horizontal-line {
+        width: 130px;
+    }
+}
+
+/* Für 320px Breite */
+@media (max-width: 320px) {
+    .above-the-fold-überschrift h3 {
+        font-size: 35px;
+        line-height: 35px;
+    }
+    .horizontal-line {
+        width: 110px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .email-position-absolute{
+        padding-left: 80px;
+    }
+    .position-absolute-right {
+        padding-right: 80px;
+
+    }
+}
+@media (max-width: 620px) {
+    .email-position-absolute{
+        padding-left: 60px;
+    }
+    .position-absolute-right {
+        padding-right: 60px;
+    }
+}
+@media (max-width: 420px) {
+    .email-position-absolute{
+        padding-left: 30px;
+    }
+    .position-absolute-right {
+        padding-right: 30px;
+    }
+}
+@media (max-width: 320px) {
+    .email-position-absolute{
+        padding-left: 25px;
+        padding-bottom: 129px;
+        rotate: 270deg;
+
+    }
+    .position-absolute-right {
+        padding-right: 25px;
+    }
 }
 
 
