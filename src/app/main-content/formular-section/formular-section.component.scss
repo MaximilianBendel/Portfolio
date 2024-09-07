@@ -44,7 +44,7 @@
 }
 
 #formular-section {
-    scroll-margin-top: 126px; 
+    scroll-margin-top: 126px;
 }
 
 .box-formular-all {
@@ -123,6 +123,7 @@ form {
             padding: 15px 25px 15px 25px;
             box-sizing: border-box;
             border-bottom: 2px solid white;
+
             &:focus {
                 outline: 2px solid white;
                 border-bottom: none;
@@ -135,11 +136,13 @@ form {
         }
 
         .label-when-no-input-focus {
-            top: 50%; /* Initially position the label in the middle of the input */
+            top: 50%;
+            /* Initially position the label in the middle of the input */
             left: 2%;
-            z-index: 1; /* Ensure label is initially behind input */
+            z-index: 1;
+            /* Ensure label is initially behind input */
         }
-    
+
         .label-when-input-focus {
             top: -20%;
             left: 2%;
@@ -214,6 +217,7 @@ form {
     display: flex;
     margin-top: 1%;
     color: #e61c40;
+
     span {
         position: absolute;
     }
@@ -223,6 +227,7 @@ form {
     display: flex;
     margin-top: 1%;
     color: #e61c40;
+
     span {
         position: absolute;
     }
@@ -236,27 +241,29 @@ form {
     gap: 24px;
     width: 100%;
 
-    .box-for-checkbox{
+    .box-for-checkbox {
         display: flex;
         position: relative;
 
-        .alert-text-checkbox{
+        .alert-text-checkbox {
             color: #e61c40;
         }
     }
 
-    .alert-text-checkbox-active{
+    .alert-text-checkbox-active {
         color: white !important;
     }
 
     .non-clickable {
         color: white;
+        margin-left: 30px;
 
         a {
             color: #00BC8F;
             text-decoration: none;
             width: 120px;
-            pointer-events: auto; /* Aktiviert die Zeigerereignisse nur für den Link */
+            pointer-events: auto;
+            /* Aktiviert die Zeigerereignisse nur für den Link */
 
             &:hover {
                 color: #00bc90d1;
@@ -267,18 +274,22 @@ form {
     label {
         display: flex;
         cursor: pointer;
-        pointer-events: none; /* Deaktiviert die Zeigerereignisse */
+        pointer-events: none;
+        /* Deaktiviert die Zeigerereignisse */
 
 
         input[type="checkbox"] {
+            margin: 0;
             margin-right: 10px;
-            width: 25px;
+            width: 17px;
             height: 16px;
             background-color: black;
             border: 2px solid white;
             appearance: none;
             cursor: pointer;
-            pointer-events: auto; /* Aktiviert die Zeigerereignisse nur für den Link */
+            pointer-events: auto;
+            position: absolute;
+            top: 3px;
 
 
             &:checked {
@@ -290,7 +301,7 @@ form {
                 content: '';
                 display: block;
                 width: 3px;
-                height: 8px;
+                height: 10px;
                 border: solid white;
                 border-width: 0 2px 2px 0;
                 transform: rotate(40deg);
@@ -320,4 +331,149 @@ form {
     }
 }
 
+@media (max-width: 1024px) {
+    .wrapper {
+        padding: 0px 80px;
+    }
 
+    .img-arrow-to-top {
+        padding-right: 80px;
+    }
+
+    .diagonal-background {
+        clip-path: polygon(0 0, 100% 16%, 100% 100%, 0 101%);
+    }
+}
+
+@media (max-width: 900px) {
+    .box-headline {
+        h3 {
+            font-size: 64px;
+        }
+    }
+
+    .img-arrow-to-top {
+        display: none;
+    }
+
+    .box-before-formular {
+        .box-before-formular-headline-1 {
+            font-size: 28px;
+        }
+
+        .box-before-formular-headline-2 {
+            font-size: 18px;
+        }
+    }
+
+    .formular-box {
+        width: 85%;
+    }
+}
+
+@media (max-width: 750px) {
+    .box-headline {
+        h3 {
+            font-size: 44px;
+        }
+    }
+
+    .box-before-formular {
+        .box-before-formular-headline-1 {
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .box-before-formular-headline-2 {
+            text-align: center;
+            white-space: normal;
+        }
+    }
+
+    .box-for-privacy-submitbutton {
+        .box-for-checkbox {
+            font-size: 14px;
+        }
+    }
+}
+
+@media (max-width: 620px) {
+    .wrapper {
+        padding: 0px 60px;
+    }
+
+    .box-headline {
+        h3 {
+            font-size: 34px;
+            margin-top: 20%;
+        }
+    }
+
+    .box-before-formular {
+        .box-before-formular-headline-1 {
+            font-size: 22px;
+        }
+
+        .box-before-formular-headline-2 {
+            text-align: center;
+            white-space: normal;
+            font-size: 16px;
+        }
+    }
+}
+
+@media (max-width: 520px) {
+    .wrapper {
+        padding: 0px 50px;
+    }
+
+    .box-for-privacy-submitbutton {
+        .box-for-checkbox {
+            font-size: 12px;
+        }
+        .submit-button {
+            padding: 10px 40px 10px 40px;
+            font-size: 18px;
+        }
+    }
+    form {
+        .box-input {
+            input {
+                font-size: 14px;
+            }
+            img {
+                width: 16px;
+            }
+        }
+    }
+    .alert {
+        span {
+            font-size: 12px;
+        }
+    }
+}
+
+@media (max-width: 420px) {
+    .wrapper {
+        padding: 0px 40px;
+    }
+
+    .box-headline {
+        h3 {
+            font-size: 34px;
+            margin-top: 30%;
+        }
+    }
+}
+
+@media (max-width: 370px) {
+    .wrapper {
+        padding: 0px 30px;
+    }
+}
+
+@media (max-width: 320px) {
+    .wrapper {
+        padding: 0px 25px;
+    }
+}
