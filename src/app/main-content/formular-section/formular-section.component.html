@@ -37,7 +37,7 @@
                             </label>
                             @if(!name.valid && name.touched){
                             <div class="alert">
-                                @if(contactData.name.length <= 3) { <span>Bitte geben Sie Ihren Vor- und Nachnamen
+                                @if(!name.valid && name.touched) { <span>Bitte geben Sie Ihren Vor- und Nachnamen
                                     ein</span>
                                     }
                             </div>
@@ -55,11 +55,9 @@
                                 (focus)="isEmailFocused = true" (blur)="isEmailFocused = false" required
                                 pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" #email="ngModel">
                             <label for="email" [ngClass]="{
-                                       'label-when-input-focus': isEmailFocused || contactData.email.length > 0,
-                                       'label-when-no-input-focus': !isEmailFocused && contactData.email.length === 0
-                                   }">
-                                Email
-                            </label>
+                                    'label-when-input-focus': isEmailFocused || (contactData.email && contactData.email.length > 0),
+                                    'label-when-no-input-focus': !isEmailFocused && (!contactData.email || contactData.email.length === 0)
+                                }">Email</label>
                             @if(!email.valid && email.touched){
                             <div class="alert">
                                 <span>Bitte geben Sie Ihre E-Mail-Adresse ein</span>
@@ -78,11 +76,9 @@
                                 (focus)="isMessageFocused = true" (blur)="isMessageFocused = false" required
                                 #textarea="ngModel"></textarea>
                             <label for="message" [ngClass]="{
-                                       'label-when-input-focus': isMessageFocused || contactData.message.length > 0,
-                                       'label-when-no-input-focus': !isMessageFocused && contactData.message.length === 0
-                                   }">
-                                Nachricht
-                            </label>
+                                    'label-when-input-focus': isMessageFocused || (contactData.message && contactData.message.length > 0),
+                                    'label-when-no-input-focus': !isMessageFocused && (!contactData.message || contactData.message.length === 0)
+                                }">Nachricht</label>
                             @if(!textarea.valid && textarea.touched){
                             <div class="alert-textarea">
                                 <span>Bitte geben Sie Ihre Nachricht ein</span>
@@ -96,10 +92,11 @@
                                         name="agreeTerms" required>
                                     <span class="non-clickable">
 
-                                        Ich habe die <a href="#">Datenschutzerklärung</a>
+                                        Ich habe die <a href="legalnotice">Datenschutzerklärung</a>
                                         gelesen und stimme der Verarbeitung
                                         meiner Daten zu
-                                        wie beschrieben. <span [ngClass]="{'alert-text-checkbox-active': checkbox.valid}"
+                                        wie beschrieben. <span
+                                            [ngClass]="{'alert-text-checkbox-active': checkbox.valid}"
                                             class="alert-text-checkbox">
                                             Bitte akzeptieren Sie die Datenschutzerklärung</span>
                                     </span>

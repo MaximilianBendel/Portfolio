@@ -1,0 +1,38 @@
+.wrapper {
+    background-color: #FFFCF3;
+    padding: 0px 100px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 122px !important;
+
+    @media (max-width: 1024px) {
+        padding: 0px 80px;
+    }
+
+    @media (max-width: 620px) {
+        padding: 0px 60px;
+    }
+
+    @media (max-width: 520px) {
+        padding: 0px 50px;
+    }
+
+    @media (max-width: 420px) {
+        padding: 0px 40px;
+    }
+
+    @media (max-width: 370px) {
+        padding: 0px 30px;
+    }
+
+    @media (max-width: 320px) {
+        padding: 0px 25px;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: #00BC8F;
+}
