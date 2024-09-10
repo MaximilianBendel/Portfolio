@@ -95,6 +95,15 @@
     left: 0;
     bottom: 0;
     padding-left: 100px;
+    a {
+        text-decoration: none;
+        color: #000000;
+        &:hover {
+            color: #06BC8F;
+            scale: (1.05);
+            transition: all 0.3s ease;
+        }
+    }
 }
 
 .position-absolute-right{
