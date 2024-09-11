@@ -17,8 +17,8 @@ export class PortfolioSectionComponent {
       title: 'Join',
       technologies: 'HTML | CSS | JavaScript | Firebase',
       description: 'Task Management Web-App zur Organisation mehrerer Anwender, inspiriert vom Kanban-System. Erlaubt die Erstellung und Verwaltung von Aufgaben mit Drag´n Drop-Funktionalität.',
-      githubLink: 'https://github.com/yourrepo/join',
-      liveTestLink: 'https://your-live-link.com',
+      githubLink: 'https://github.com/MaximilianBendel/Join-Projekt',
+      liveTestLink: 'https://join.maximilian-bendel.de/',
       imgSrc: 'assets/images/images_portfolio/join-project.png',
       arrowImgSrc: 'assets/images/images_portfolio/arrow-portfolio.png'
     },
@@ -27,8 +27,8 @@ export class PortfolioSectionComponent {
       title: 'El Pollo Loco',
       technologies: 'JavaScript | HTML | CSS',
       description: 'Web-Browser Spiel mit objektorientierter Programmierung, basierend auf HTML Canvas.',
-      githubLink: 'https://github.com/yourrepo/project2',
-      liveTestLink: 'https://your-live-link.com',
+      githubLink: 'https://github.com/MaximilianBendel/Ell-Pollo-Loco',
+      liveTestLink: 'https://elpolloloco.maximilian-bendel.de',
       imgSrc: 'assets/images/images_portfolio/ell-pollo-loco-png.png',
       arrowImgSrc: 'assets/images/images_portfolio/arrow-portfolio.png'
     }

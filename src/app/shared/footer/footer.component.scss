@@ -29,9 +29,20 @@ footer {
         justify-content: center;
         gap: 10px;
 
-        img {
-            width: 35px;
-            height: 35px;
+        a {
+
+            display: inline-block; /* Damit der hover-Effekt auf den Link wirkt */
+
+
+            img {
+                width: 35px;
+                height: 35px;
+                transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* Weicher Übergang mit einer custom cubic-bezier */
+            }
+
+            &:hover img {
+                transform: translateY(-10px); /* Bild nach oben schieben */
+            }
         }
     }
 

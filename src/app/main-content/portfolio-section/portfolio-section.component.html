@@ -3,7 +3,7 @@
         <h3 class="fontSyne">
             Portfolio
         </h3>
-        <span class="fontOverpass">
+        <span class="fontOverpass description-portfolio">
             Probieren Sie gerne meine neuesten Frontend-Projekte aus und sehen Sie sich deren Code an.
         </span>
         @for (project of projects; track project; let i = $index) {
@@ -30,7 +30,7 @@
                                 <a href="{{project.githubLink}}">
                                     Github
                                 </a>
-                                <a href="{{project.liveTestLink}}">
+                                <a target="_blank" href="{{project.liveTestLink}}">
                                     Live Test
                                 </a>
                             </div>

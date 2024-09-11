@@ -27,6 +27,11 @@
         bottom: 0;
         right: 0;
         padding-right: 100px;
+        transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* Smooth transition */
+
+        &:hover {
+            transform: translateY(-20px); /* Schiebt das Element nach oben */
+        }
     }
 
     h3 {
