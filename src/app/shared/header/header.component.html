@@ -1,23 +1,36 @@
 <div class="wrapper-header">
-    <header class="fontOverpass">
-        <a href="">
-            <img class="header-logo" src="assets/images/images_header/logo.png" alt="">
-        </a>
-        <div class="header-right-box">
-            <a href="#aboutme">Über mich</a>
-            <a href="#skills-section">Skills</a>
-            <a href="#portfolio-section">Portfolio</a>
-            <div class="mobile-menu">
-                <img src="assets/images/images_header/burger-menu.png" alt="" (click)="toggleMobileMenu()">
-            </div>
+  <header class="fontOverpass">
+    <a href="">
+      <img class="header-logo" src="assets/images/images_header/logo.png" [attr.alt]="translations.headerLogoAltText">
+    </a>
+    <div class="header-right-box">
+      <a href="#aboutme">{{ translations.aboutMeLink }}</a>
+      <a href="#skills-section">{{ translations.skillsLink }}</a>
+      <a href="#portfolio-section">{{ translations.portfolioLink }}</a>
+      <div class="header-right-box-languages">
+        <button (click)="changeLanguage('de')">{{ translations.deButtonText }}</button>
+        <div class="horizontal-line">
         </div>
-    </header>
+        <button (click)="changeLanguage('en')">{{ translations.enButtonText }}</button>
+      </div>
+      <div class="mobile-menu">
+        <img src="assets/images/images_header/burger-menu.png" [attr.alt]="translations.mobileMenuButtonAltText"
+          (click)="toggleMobileMenu()">
+      </div>
+    </div>
+  </header>
 </div>
 
 <div class="mobile-menu-overlay fontOverpass" [ngClass]="{'active': isMenuOpen}">
-    <div class="mobile-menu-content">
-      <a href="#aboutme" (click)="closeMenu()">Über mich</a>
-      <a href="#skills-section" (click)="closeMenu()">Skills</a>
-      <a href="#portfolio-section" (click)="closeMenu()">Portfolio</a>
+  <div class="mobile-menu-content">
+    <a href="#aboutme" (click)="closeMenu()">{{ translations.aboutMeLink }}</a>
+    <a href="#skills-section" (click)="closeMenu()">{{ translations.skillsLink }}</a>
+    <a href="#portfolio-section" (click)="closeMenu()">{{ translations.portfolioLink }}</a>
+    <div class="header-right-box-languages-mobile">
+      <button (click)="changeLanguage('de')">{{ translations.deButtonText }}</button>
+      <div class="horizontal-line-mobile">
+      </div>
+      <button (click)="changeLanguage('en')">{{ translations.enButtonText }}</button>
     </div>
   </div>
+</div>

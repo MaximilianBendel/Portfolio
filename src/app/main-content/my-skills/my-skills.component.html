@@ -2,27 +2,25 @@
     <div #wrapper class="wrapper">
         <div class="border-black">
             <h3 #headline class="fontSyne">
-                Meine Skills
+                {{ translations.skillsSection.headline }}
             </h3>
             <div #middlebox class="middle-box">
-                @for (item of skillsList; track item.name; let index = $index) {
-                <div class="skill-box">
-                    <img src="{{item.img}}" alt="">
-                    <span class="fontOverpass">{{item.name}}</span>
+                <div class="skill-box" *ngFor="let item of skillsList">
+                    <img [src]="item.img" alt="">
+                    <span class="fontOverpass">{{ item.name }}</span>
                 </div>
-                }
             </div>
             <div class="bottom-box">
                 <img src="assets/images/images_my_skills/logo-learning.png" alt="">
                 <div class="bottom-box-text">
                     <span class="fontOverpass">
-                        Sie finden die gewünschte Fähigkeit nicht?
+                        {{ translations.skillsSection.notFoundText }}
                     </span>
                     <a href="#formular-section" class="fontOverpass">
-                        Kontakt
+                        {{ translations.skillsSection.contactLinkText }}
                     </a>
                     <span class="fontOverpass">
-                        Ich bin immer bereit zu lernen!
+                        {{ translations.skillsSection.learningText }}
                     </span>
                 </div>
             </div>

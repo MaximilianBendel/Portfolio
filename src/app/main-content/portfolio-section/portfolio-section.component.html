@@ -1,41 +1,42 @@
 <div id="portfolio-section" class="background-color">
-    <div #wrapper  class="wrapper">
+    <div #wrapper class="wrapper">
         <h3 #headline class="fontSyne">
-            Portfolio
+            {{ translations.portfolioSection.headline }}
         </h3>
         <span class="fontOverpass description-portfolio">
-            Probieren Sie gerne meine neuesten Frontend-Projekte aus und sehen Sie sich deren Code an.
+            {{ translations.portfolioSection.description }}
         </span>
+        <!-- Hier sollte deine Logik für die projects ergänzt werden -->
         @for (project of projects; track project; let i = $index) {
             <div #projectbox class="project-box" [ngClass]="{'reverse': i % 2 !== 0}">
                 <div class="img-border">
-                    <img src="{{project.imgSrc}}" alt="">
+                    <img [src]="project.imgSrc" alt="">
                     <img class="arrow-image" src="assets/images/images_portfolio/arrow-portfolio.png" alt="">
                 </div>
-                    <div class="project-box-right">
-                        <span class="fontSyne text-align-end">
-                            {{project.id}}
-                        </span>
-                        <div class="project-box-right-box-bottom">
-                            <h3 class="fontSyne">
-                                {{project.title}}
-                            </h3>
-                            <h4 class="fontOverpass">
-                                {{project.technologies}}
-                            </h4>
-                            <p class="fontOverpass">
-                                {{project.description}}
-                            </p>
-                            <div class="project-box-right-box-bottom-links fontOverpass">
-                                <a target="_blank"  href="{{project.githubLink}}">
-                                    Github
-                                </a>
-                                <a target="_blank" href="{{project.liveTestLink}}">
-                                    Live Test
-                                </a>
-                            </div>
+                <div class="project-box-right">
+                    <span class="fontSyne text-align-end">
+                        {{ project.id }}
+                    </span>
+                    <div class="project-box-right-box-bottom">
+                        <h3 class="fontSyne">
+                            {{ project.title }}
+                        </h3>
+                        <h4 class="fontOverpass">
+                            {{ project.technologies }}
+                        </h4>
+                        <p class="fontOverpass">
+                            {{ project.description }}
+                        </p>
+                        <div class="project-box-right-box-bottom-links fontOverpass">
+                            <a target="_blank" [href]="project.githubLink">
+                                {{ translations.portfolioSection.githubLinkText }}
+                            </a>
+                            <a target="_blank" [href]="project.liveTestLink">
+                                {{ translations.portfolioSection.liveTestLinkText }}
+                            </a>
                         </div>
                     </div>
+                </div>
             </div>
         }
         <div #aboutMeBox class="about-me-box-finish">
@@ -43,3 +44,4 @@
         </div>
     </div>
 </div>
+

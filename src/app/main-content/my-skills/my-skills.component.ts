@@ -1,4 +1,6 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { TranslationService } from '../../shared/translation.service';
+import { CommonModule } from '@angular/common';
 
 interface Skill {
   name: string;
@@ -8,7 +10,7 @@ interface Skill {
 @Component({
   selector: 'app-my-skills',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './my-skills.component.html',
   styleUrl: './my-skills.component.scss'
 })
@@ -63,8 +65,6 @@ export class MySkillsComponent implements AfterViewInit {
   @ViewChild('headline') headline!: ElementRef;
   @ViewChild('middlebox') middlebox!: ElementRef;
 
-  constructor() {}
-
   ngAfterViewInit(): void {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -99,5 +99,20 @@ export class MySkillsComponent implements AfterViewInit {
     observer.observe(this.wrapper.nativeElement);
     observer.observe(this.headline.nativeElement);
     observer.observe(this.middlebox.nativeElement);
+  }
+
+  translations: any;
+
+  constructor(private translationService: TranslationService) { }
+
+    ngOnInit() {
+      this.updateTranslations();
+      this.translationService.getLanguageChange().subscribe(() => {
+        this.updateTranslations(); // Update translations when language changes
+      });
+    }
+
+  updateTranslations() {
+    this.translations = this.translationService.getTranslations();
   }
 }

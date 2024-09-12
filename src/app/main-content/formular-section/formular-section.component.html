@@ -1,3 +1,4 @@
+
 <div class="background-color">
     <div #backgroundDiv class="diagonal-background">
         <div class="wrapper">
@@ -6,16 +7,16 @@
             </a>
             <div id="formular-section" class="box-headline">
                 <h3 #formularHeadline class="fontSyne">
-                    Kontakt
+                    {{ translations.form.headline }}
                 </h3>
             </div>
             <div #formularBox class="box-formular-all">
                 <div class="box-before-formular fontOverpass">
                     <p class="box-before-formular-headline-1">
-                        Möchten Sie ein Projekt besprechen?
+                        {{ translations.form.boxBeforeForm.headline1 }}
                     </p>
                     <p class="box-before-formular-headline-2">
-                        Schicken Sie mir eine Nachricht und lassen Sie uns das Projekt angehen!
+                        {{ translations.form.boxBeforeForm.headline2 }}
                     </p>
                 </div>
                 <div class="formular-box">
@@ -28,20 +29,17 @@
                                 'img-visible': name.valid && name.touched
                             }">
                             <input minlength="4" [(ngModel)]="contactData.name" type="text" id="name" name="name"
-                                (focus)="isNameFocused = true" (blur)="isNameFocused = false" required #name="ngModel">
+                                (focus)="isNameFocused = true" (blur)="isNameFocused = false" required #name="ngModel"
+                                >
                             <label for="name" [ngClass]="{
                                     'label-when-input-focus': isNameFocused || (contactData.name && contactData.name.length > 0),
                                     'label-when-no-input-focus': !isNameFocused && (!contactData.name || contactData.name.length === 0)
                             }">
-                                Name
+                                {{ translations.form.form.name.label }}
                             </label>
-                            @if(!name.valid && name.touched){
-                            <div class="alert">
-                                @if(!name.valid && name.touched) { <span>Bitte geben Sie Ihren Vor- und Nachnamen
-                                    ein</span>
-                                    }
+                            <div class="alert" *ngIf="!name.valid && name.touched">
+                                <span>{{ translations.form.form.name.error }}</span>
                             </div>
-                            }
                         </div>
 
                         <div class="box-input">
@@ -53,16 +51,15 @@
                             }">
                             <input [(ngModel)]="contactData.email" type="email" id="email" name="email"
                                 (focus)="isEmailFocused = true" (blur)="isEmailFocused = false" required
-                                pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}" #email="ngModel">
+                                pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
+                                 #email="ngModel">
                             <label for="email" [ngClass]="{
                                     'label-when-input-focus': isEmailFocused || (contactData.email && contactData.email.length > 0),
                                     'label-when-no-input-focus': !isEmailFocused && (!contactData.email || contactData.email.length === 0)
-                                }">Email</label>
-                            @if(!email.valid && email.touched){
-                            <div class="alert">
-                                <span>Bitte geben Sie Ihre E-Mail-Adresse ein</span>
+                                }">{{ translations.form.form.email.label }}</label>
+                            <div class="alert" *ngIf="!email.valid && email.touched">
+                                <span>{{ translations.form.form.email.error }}</span>
                             </div>
-                            }
                         </div>
 
                         <div class="box-textarea">
@@ -74,45 +71,48 @@
                             }">
                             <textarea minlength="1" [(ngModel)]="contactData.message" name="message" id="message"
                                 (focus)="isMessageFocused = true" (blur)="isMessageFocused = false" required
-                                #textarea="ngModel"></textarea>
+                                 #textarea="ngModel"></textarea>
                             <label for="message" [ngClass]="{
                                     'label-when-input-focus': isMessageFocused || (contactData.message && contactData.message.length > 0),
                                     'label-when-no-input-focus': !isMessageFocused && (!contactData.message || contactData.message.length === 0)
-                                }">Nachricht</label>
-                            @if(!textarea.valid && textarea.touched){
-                            <div class="alert-textarea">
-                                <span>Bitte geben Sie Ihre Nachricht ein</span>
+                                }">{{ translations.form.form.message.label }}</label>
+                            <div class="alert-textarea" *ngIf="!textarea.valid && textarea.touched">
+                                <span>{{ translations.form.form.message.error }}</span>
                             </div>
-                            }
                         </div>
                         <div class="box-for-privacy-submitbutton">
                             <div class="box-for-checkbox">
                                 <label>
                                     <input #checkbox="ngModel" type="checkbox" [(ngModel)]="contactData.agreeTerms"
                                         name="agreeTerms" required>
-                                    <span class="non-clickable">
-
-                                        Ich habe die <a href="legalnotice">Datenschutzerklärung</a>
-                                        gelesen und stimme der Verarbeitung
-                                        meiner Daten zu
-                                        wie beschrieben. <span
-                                            [ngClass]="{'alert-text-checkbox-active': checkbox.valid}"
-                                            class="alert-text-checkbox">
-                                            Bitte akzeptieren Sie die Datenschutzerklärung</span>
-                                    </span>
+                                        <div class="box-for-checkbox">
+                                            <label>
+                                                <input #checkbox="ngModel" type="checkbox" [(ngModel)]="contactData.agreeTerms"
+                                                    name="agreeTerms" required>
+                                                <span class="non-clickable">
+                                                    {{ translations.form.form.privacy.label1 }}
+                                                    <a href="legalnotice">{{translations.form.form.privacy.linkLegalNotice}}</a>
+                                                    {{translations.form.form.privacy.label2}}
+                                                <span [ngClass]="{'alert-text-checkbox-active': checkbox.valid}"
+                                                      class="alert-text-checkbox">
+                                                    {{ translations.form.form.privacy.error }}
+                                                </span>
+                                            </span>
+                                            </label>
+                                        </div>
                                 </label>
                             </div>
 
                             <input [ngClass]="{'submit-button-valid': contactForm.valid}"
-                                class="submit-button fontOverpass" type="submit" value="Send message"
+                                class="submit-button fontOverpass" type="submit" [value]="translations.form.submit"
                                 [disabled]="!contactData.agreeTerms">
                         </div>
                     </form>
                     <div *ngIf="feedbackMessage" class="feedback-message {{feedbackClass}}">
-                        {{feedbackMessage}}
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+                   

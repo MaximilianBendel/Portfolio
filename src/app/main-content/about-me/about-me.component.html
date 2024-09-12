@@ -1,43 +1,42 @@
 <div id="aboutme" class="background-div">
-    <div #backgroundDiv  class="about-me-wrapper">
-        <h3 #aboutMeSectionHeader class="fontSyne">
-            Über mich
+    <div #backgroundDiv class="about-me-wrapper">
+        <h3  #aboutMeSectionHeader  class="fontSyne">
+            {{ translations.aboutMeHeader }}
         </h3>
-        <div #aboutMeSection class="about-me-box">
+        <div #aboutMeBox  class="about-me-box">
             <div class="about-me-box-left">
                 <p class="fontOverpass">
-                    Ich bin ein Frontend-Entwickler aus Weißenfels, Deutschland. Ich helfe Designern und Unternehmen dabei, ihre Ideen in die Realität umzusetzen. Kreativität und logisches Denken sind Fähigkeiten, die ich entwickelt habe, um Ideen in Qualitätsprodukte umzusetzen.                </p>
+                    {{ translations.aboutMeText1 }}
+                </p>
                 <p class="fontOverpass">
-                    Wenn Sie glauben, dass ich gut zu Ihren Projekten passen würde, kontaktieren Sie mich!
+                    {{ translations.aboutMeText2 }}
                 </p>
                 <div class="about-me-left-big-box-bottom">
                     <div class="about-me-left-box-bottom">
                         <img src="assets/images/images_about_me/house.png" alt="">
                         <p>
-                            Wohnhaft in Bad Bibra
+                            {{ translations.location }}
                         </p>
                     </div>
                     <div class="about-me-left-box-bottom">
                         <img src="assets/images/images_about_me/laptop_chromebook.png" alt="">
                         <p>
-                            Offen für Remote-Arbeit
+                            {{ translations.remoteWork }}
                         </p>
                     </div>
                 </div>
                 <div class="about-me-button-box">
                     <a href="#formular-section" class="fontOverpass">
-                        Kontakt
+                        {{ translations.contact }}
                     </a>
                 </div>
-               
             </div>
             <div class="about-me-box-right">
                 <img src="assets/images/images_about_me/Mask group.png" alt="">
             </div>
         </div>
-        <div #aboutMeBox class="about-me-box-finish">
+        <div #aboutMeSection class="about-me-box-finish">
             <img src="assets/images/images_about_me/arrowbottom.png" alt="">
         </div>
-        
     </div>
 </div>

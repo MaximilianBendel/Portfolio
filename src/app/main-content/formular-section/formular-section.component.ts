@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, ElementRef, inject, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, inject, OnInit, ViewChild } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
+import { TranslationService } from '../../shared/translation.service';
 
 @Component({
   selector: 'app-formular-section',
@@ -10,7 +11,23 @@ import { FormsModule, NgForm } from '@angular/forms';
   templateUrl: './formular-section.component.html',
   styleUrl: './formular-section.component.scss'
 })
-export class FormularSectionComponent {
+export class FormularSectionComponent implements OnInit, AfterViewInit {
+
+  constructor(private translationService: TranslationService) { }
+
+  translations: any;
+  
+    ngOnInit() {
+      this.updateTranslations();
+      this.translationService.getLanguageChange().subscribe(() => {
+        this.updateTranslations(); // Update translations when language changes
+      });
+    }
+
+  updateTranslations() {
+    this.translations = this.translationService.getTranslations();
+    console.log('Form translations:', this.translations?.form);
+  }
 
   http = inject(HttpClient);
 
@@ -93,8 +110,6 @@ export class FormularSectionComponent {
   @ViewChild('backgroundDiv') backgroundDiv!: ElementRef;
   @ViewChild('formularHeadline') formularHeadline!: ElementRef;
   @ViewChild('formularBox') formularBox!: ElementRef;
-
-  constructor() { }
 
   ngAfterViewInit(): void {
     const observer = new IntersectionObserver((entries) => {

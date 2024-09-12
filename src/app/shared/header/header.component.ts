@@ -1,5 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { TranslationService } from '../translation.service';
+
 
 @Component({
   selector: 'app-header',
@@ -8,9 +10,24 @@ import { Component } from '@angular/core';
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
 
   isMenuOpen = false;
+
+  translations: any = {};
+
+  constructor(private translationService: TranslationService) { }
+
+  ngOnInit() {
+    this.updateTranslations();
+    this.translationService.getLanguageChange().subscribe(() => {
+      this.updateTranslations();
+    });
+  }
+  
+  updateTranslations() {
+    this.translations = this.translationService.getTranslations();
+  }
 
   toggleMobileMenu(): void {
     this.isMenuOpen = !this.isMenuOpen;
@@ -24,5 +41,9 @@ export class HeaderComponent {
   closeMenu(): void {
     this.isMenuOpen = false;
     document.body.classList.remove('no-scroll');  // Scrollen aktivieren
+  }
+
+  changeLanguage(lang: 'en' | 'de'): void {
+    this.translationService.setLanguage(lang);
   }
 }

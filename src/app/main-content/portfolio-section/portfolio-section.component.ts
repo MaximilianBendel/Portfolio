@@ -1,85 +1,89 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
-
+import { Component, ElementRef, QueryList, ViewChild, ViewChildren, AfterViewInit, OnDestroy } from '@angular/core';
+import { TranslationService } from '../../shared/translation.service';
 
 @Component({
   selector: 'app-portfolio-section',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './portfolio-section.component.html',
-  styleUrl: './portfolio-section.component.scss'
+  styleUrls: ['./portfolio-section.component.scss']
 })
-export class PortfolioSectionComponent {
+export class PortfolioSectionComponent implements AfterViewInit, OnDestroy {
 
-  projects = [
-    {
-      id: '01/02',
-      title: 'Join',
-      technologies: 'HTML | CSS | JavaScript | Firebase',
-      description: 'Task Management Web-App zur Organisation mehrerer Anwender, inspiriert vom Kanban-System. Erlaubt die Erstellung und Verwaltung von Aufgaben mit Drag´n Drop-Funktionalität.',
-      githubLink: 'https://github.com/MaximilianBendel/Join-Projekt',
-      liveTestLink: 'https://join.maximilian-bendel.de/',
-      imgSrc: 'assets/images/images_portfolio/join-project.png',
-      arrowImgSrc: 'assets/images/images_portfolio/arrow-portfolio.png'
-    },
-    {
-      id: '02/02',
-      title: 'El Pollo Loco',
-      technologies: 'JavaScript | HTML | CSS',
-      description: 'Web-Browser Spiel mit objektorientierter Programmierung, basierend auf HTML Canvas.',
-      githubLink: 'https://github.com/MaximilianBendel/Ell-Pollo-Loco',
-      liveTestLink: 'https://elpolloloco.maximilian-bendel.de',
-      imgSrc: 'assets/images/images_portfolio/ell-pollo-loco-png.png',
-      arrowImgSrc: 'assets/images/images_portfolio/arrow-portfolio.png'
-    }
-  ];
-
+  projects: any[] = [];
   @ViewChild('aboutMeBox') aboutMeBox!: ElementRef;
   @ViewChild('wrapper') wrapper!: ElementRef;
   @ViewChild('headline') headline!: ElementRef;
   @ViewChildren('projectbox') projectBoxes!: QueryList<ElementRef>;
 
-  constructor() {}
+  translations: any = {};
+  private observer!: IntersectionObserver;
+
+  constructor(private translationService: TranslationService) { }
+
+  ngOnInit() {
+    this.updateTranslations();
+    this.translationService.getLanguageChange().subscribe(() => {
+      this.updateTranslations(); // Update translations when language changes
+      this.resetObserver();      // Reinitialize the IntersectionObserver after language change
+    });
+  }
 
   ngAfterViewInit(): void {
-    const observer = new IntersectionObserver((entries) => {
+    // Wait until the ViewChildren (projectBoxes) are available
+    this.setupIntersectionObserver();
+    this.projectBoxes.changes.subscribe(() => {
+      this.resetObserver(); // Reset observer whenever projectBoxes changes
+    });
+  }
+
+  setupIntersectionObserver() {
+    this.observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          if (entry.target === this.aboutMeBox.nativeElement) {
-            this.aboutMeBox.nativeElement.classList.add('visible');
-          }
-          if (entry.target === this.wrapper.nativeElement) {
-            this.wrapper.nativeElement.classList.add('visible');
-          }
-          if (entry.target === this.headline.nativeElement) {
-            this.headline.nativeElement.classList.add('visible');
-          }
-          this.projectBoxes.forEach((box) => {
-            if (entry.target === box.nativeElement) {
-              box.nativeElement.classList.add('visible');
-            }
-          });
+          entry.target.classList.add('visible');
         } else {
-          if (entry.target === this.wrapper.nativeElement) {
-            this.wrapper.nativeElement.classList.remove('visible');
-          }
-          if (entry.target === this.headline.nativeElement) {
-            this.headline.nativeElement.classList.remove('visible');
-          }
-          this.projectBoxes.forEach((box) => {
-            if (entry.target === box.nativeElement) {
-              box.nativeElement.classList.remove('visible');
-            }
-          });
+          entry.target.classList.remove('visible'); // Optional: remove if not visible
         }
       });
-    }, { threshold: 0.45});
+    }, { threshold: 0.45 });
 
-    observer.observe(this.aboutMeBox.nativeElement);
-    observer.observe(this.wrapper.nativeElement);
-    observer.observe(this.headline.nativeElement);
-    this.projectBoxes.forEach((box) => {
-      observer.observe(box.nativeElement);
-    });
+    // Initially observe elements
+    this.observeElements();
+  }
+
+  observeElements() {
+    // Observe all elements if they exist
+    if (this.aboutMeBox) this.observer.observe(this.aboutMeBox.nativeElement);
+    if (this.wrapper) this.observer.observe(this.wrapper.nativeElement);
+    if (this.headline) this.observer.observe(this.headline.nativeElement);
+
+    // Wait for projectBoxes to be initialized
+    if (this.projectBoxes) {
+      this.projectBoxes.forEach((box) => {
+        this.observer.observe(box.nativeElement);
+      });
+    }
+  }
+
+  resetObserver() {
+    // Disconnect the observer to stop observing old elements
+    if (this.observer) {
+      this.observer.disconnect();
+    }
+    // Re-observe the updated elements
+    this.observeElements();
+  }
+
+  updateTranslations() {
+    this.translations = this.translationService.getTranslations();
+    this.projects = this.translations.portfolioSection.projects;
+  }
+
+  ngOnDestroy() {
+    if (this.observer) {
+      this.observer.disconnect(); // Cleanup observer when component is destroyed
+    }
   }
 }

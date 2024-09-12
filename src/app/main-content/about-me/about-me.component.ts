@@ -1,22 +1,37 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { TranslationService } from '../../shared/translation.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-about-me',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './about-me.component.html',
   styleUrl: './about-me.component.scss'
 })
-export class AboutMeComponent implements AfterViewInit {
+export class AboutMeComponent implements OnInit, AfterViewInit {
+
+  translations: any;
+
+  constructor(private translationService: TranslationService) { }
+
+    ngOnInit() {
+      this.updateTranslations();
+      this.translationService.getLanguageChange().subscribe(() => {
+        this.updateTranslations(); // Update translations when language changes
+      });
+    }
+
+    updateTranslations() {
+      this.translations = this.translationService.getTranslations();
+    }
+    
 
   
   @ViewChild('aboutMeBox') aboutMeBox!: ElementRef; 
   @ViewChild('aboutMeSection') aboutMeSection!: ElementRef;  
   @ViewChild('aboutMeSectionHeader') aboutMeSectionHeader!: ElementRef;  
   @ViewChild('backgroundDiv') backgroundDiv!: ElementRef;  // Für die gesamte background-div
-
-
-  constructor() {}
 
   ngAfterViewInit(): void {
     // Observer für den aboutMeSectionHeader (Überschrift von links nach rechts) und aboutMeBox (Box von rechts nach links)
