@@ -7,8 +7,15 @@
     background-color: black;
     clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 101%);
     width: 100%;
-    max-width: 1440px;
     margin: 0 auto;
+    opacity: 0;
+    transform: translateY(0px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+
+    &.visible {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+    }
 }
 
 .wrapper {
@@ -39,6 +46,14 @@
         font-weight: 800;
         font-size: 78px;
         line-height: 78px;
+        opacity: 0;
+        transform: scale(0.9);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+
+        &.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
     }
 }
 
@@ -59,6 +74,14 @@
     flex-direction: column;
     gap: 24px;
     width: 100%;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+
+    &.visible {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 .box-before-formular {
@@ -335,6 +358,28 @@ form {
         padding: 20px 80px 20px 80px;
     }
 }
+
+.feedback-message {
+    margin-top: 20px;
+    padding: 8px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'Overpass';
+    transition: opacity 0.5s ease;
+
+    &.success {
+        background-color: black;
+        color: #00BC8F;
+    }
+
+    &.error {
+        background-color: black;
+        color: #e61c40;
+    }
+}
+
 
 @media (max-width: 1024px) {
     .wrapper {

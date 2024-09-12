@@ -16,6 +16,14 @@
     display: flex;
     flex-direction: column;
     margin: 0 auto;
+    opacity: 0;
+    transform: translateY(0px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+
+    &.visible {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+    }
 
     .description-portfolio {
         text-align: center;
@@ -26,6 +34,14 @@
         line-height: 78px;
         font-weight: 800;
         color: #000000;
+        opacity: 0;
+        transform: scale(0.9);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+
+        &.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
     }
 
     span {
@@ -42,6 +58,14 @@
     position: relative;
     justify-content: space-between;
     align-items: center;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+
+    &.visible {
+        opacity: 1;
+        transform: scale(1);
+    }
 
     &.reverse {
         flex-direction: row-reverse;
@@ -208,8 +232,8 @@
     display: flex;
     justify-content: flex-end;
     position: relative;
-    /* Stelle sicher, dass die Position relativ ist, um die Animation korrekt auszuführen */
     width: 100%;
+    margin-bottom: 10%;
 
     img {
         position: relative;
@@ -288,16 +312,56 @@
         gap: 24px;
 
         &.reverse {
+
+            .arrow-image {
+                width: 15%;
+                position: absolute;
+                left: -10%;
+                bottom: 29%;
+                z-index: 997;
+                opacity: 0;
+                transition: transform 400ms ease; // Übergangseffekte für Sichtbarkeit und Rotation
+            }
+
+            .arrow-image {
+                opacity: 1; // Bild beim Hover sichtbar machen
+                transform: rotate(-135deg) scale(1.2); // Bild um -135 Grad drehen (nach rechts oben)
+            }
+
+            .img-border::before {
+                border-color: black;
+                transform: translate(-3%, 6%); // Verschieben in die entgegengesetzte Richtung
+                z-index: 997;
+            }
+        }
+
+        img {
+            filter: none;
+        }
+
+        &.reverse {
             .img-border {
                 width: 80%;
             }
-    
+
             .project-box-right {
                 width: 80%;
+
                 span {
                     text-align: right;
                 }
             }
+        }
+
+        .img-border::before {
+            border-color: black; // Border-Farbe beim Hover
+            transform: translate(3%, 6%); // Leichtes Verschieben nach rechts und unten
+            z-index: 997;
+        }
+
+        .arrow-image {
+            opacity: 1; // Bild beim Hover sichtbar machen
+            transform: rotate(-135deg) scale(1.2); // Bild um -135 Grad drehen (nach rechts oben)
         }
 
         .img-border {
@@ -306,10 +370,18 @@
 
         .project-box-right {
             width: 80%;
+
             span {
                 text-align: left;
             }
         }
+    }
+
+    .project-box-right-box-bottom {
+        opacity: 1 !important;
+        /* Immer sichtbar */
+        transform: translateX(0) !important;
+        /* Keine Verschiebung mehr */
     }
 
 }
@@ -320,11 +392,13 @@
             font-size: 44px;
         }
     }
+
     .project-box-right-box-bottom {
         h3 {
             font-size: 38px;
         }
     }
+
     .wrapper {
         padding: 0px 60px;
     }
@@ -334,36 +408,43 @@
     .wrapper {
         padding: 0px 50px;
     }
+
     .project-box-right {
         span {
             font-size: 36px;
         }
     }
+
     .project-box-right-box-bottom {
         h3 {
             font-size: 36px;
         }
+
         h4 {
             font-size: 18px;
         }
     }
+
     .project-box {
         &.reverse {
             .img-border {
                 width: 90%;
             }
-    
+
             .project-box-right {
                 width: 90%;
             }
         }
+
         .img-border {
             width: 90%;
         }
+
         .project-box-right {
             width: 90%;
         }
     }
+
     .project-box-right-box-bottom-links {
         a {
             font-size: 16px;
@@ -382,15 +463,18 @@
     .wrapper {
         padding: 0px 30px;
     }
+
     .project-box-right-box-bottom {
         h3 {
             font-size: 34px;
         }
+
         h4 {
             font-size: 16px;
         }
     }
 }
+
 @media (max-width: 320px) {
     .wrapper {
         padding: 0px 25px;

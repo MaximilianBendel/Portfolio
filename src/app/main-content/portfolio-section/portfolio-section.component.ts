@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
 
 
 @Component({
@@ -35,6 +35,9 @@ export class PortfolioSectionComponent {
   ];
 
   @ViewChild('aboutMeBox') aboutMeBox!: ElementRef;
+  @ViewChild('wrapper') wrapper!: ElementRef;
+  @ViewChild('headline') headline!: ElementRef;
+  @ViewChildren('projectbox') projectBoxes!: QueryList<ElementRef>;
 
   constructor() {}
 
@@ -42,12 +45,41 @@ export class PortfolioSectionComponent {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          // Wenn das Element sichtbar wird, füge die Klasse 'visible' hinzu
-          this.aboutMeBox.nativeElement.classList.add('visible');
+          if (entry.target === this.aboutMeBox.nativeElement) {
+            this.aboutMeBox.nativeElement.classList.add('visible');
+          }
+          if (entry.target === this.wrapper.nativeElement) {
+            this.wrapper.nativeElement.classList.add('visible');
+          }
+          if (entry.target === this.headline.nativeElement) {
+            this.headline.nativeElement.classList.add('visible');
+          }
+          this.projectBoxes.forEach((box) => {
+            if (entry.target === box.nativeElement) {
+              box.nativeElement.classList.add('visible');
+            }
+          });
+        } else {
+          if (entry.target === this.wrapper.nativeElement) {
+            this.wrapper.nativeElement.classList.remove('visible');
+          }
+          if (entry.target === this.headline.nativeElement) {
+            this.headline.nativeElement.classList.remove('visible');
+          }
+          this.projectBoxes.forEach((box) => {
+            if (entry.target === box.nativeElement) {
+              box.nativeElement.classList.remove('visible');
+            }
+          });
         }
       });
-    });
+    }, { threshold: 0.45});
 
     observer.observe(this.aboutMeBox.nativeElement);
+    observer.observe(this.wrapper.nativeElement);
+    observer.observe(this.headline.nativeElement);
+    this.projectBoxes.forEach((box) => {
+      observer.observe(box.nativeElement);
+    });
   }
 }

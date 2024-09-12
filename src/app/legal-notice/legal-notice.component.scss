@@ -1,11 +1,16 @@
-.wrapper {
+.background-color {
     background-color: #FFFCF3;
+}
+
+.wrapper {
     padding: 0px 100px;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding-top: 122px !important;
+    max-width: 1440px;
+    margin: 0 auto;
 
     @media (max-width: 1024px) {
         padding: 0px 80px;

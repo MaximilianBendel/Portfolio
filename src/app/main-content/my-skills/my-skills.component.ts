@@ -59,6 +59,9 @@ export class MySkillsComponent implements AfterViewInit {
   
 
   @ViewChild('aboutMeBox') aboutMeBox!: ElementRef;
+  @ViewChild('wrapper') wrapper!: ElementRef;
+  @ViewChild('headline') headline!: ElementRef;
+  @ViewChild('middlebox') middlebox!: ElementRef;
 
   constructor() {}
 
@@ -66,12 +69,35 @@ export class MySkillsComponent implements AfterViewInit {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          // Wenn das Element sichtbar wird, füge die Klasse 'visible' hinzu
-          this.aboutMeBox.nativeElement.classList.add('visible');
+          if (entry.target === this.aboutMeBox.nativeElement) {
+            this.aboutMeBox.nativeElement.classList.add('visible');
+          }
+          if (entry.target === this.wrapper.nativeElement) {
+            this.wrapper.nativeElement.classList.add('visible');
+          }
+          if (entry.target === this.headline.nativeElement) {
+            this.headline.nativeElement.classList.add('visible');
+          }
+          if (entry.target === this.middlebox.nativeElement) {
+            this.middlebox.nativeElement.classList.add('visible');
+          }
+        } else {
+          if (entry.target === this.wrapper.nativeElement) {
+            this.wrapper.nativeElement.classList.remove('visible');
+          }
+          if (entry.target === this.headline.nativeElement) {
+            this.headline.nativeElement.classList.remove('visible');
+          }
+          if (entry.target === this.middlebox.nativeElement) {
+            this.middlebox.nativeElement.classList.remove('visible');
+          }
         }
       });
-    });
+    }, { threshold: 0.3});
 
     observer.observe(this.aboutMeBox.nativeElement);
+    observer.observe(this.wrapper.nativeElement);
+    observer.observe(this.headline.nativeElement);
+    observer.observe(this.middlebox.nativeElement);
   }
 }

@@ -1,13 +1,13 @@
 <div id="portfolio-section" class="background-color">
-    <div class="wrapper">
-        <h3 class="fontSyne">
+    <div #wrapper  class="wrapper">
+        <h3 #headline class="fontSyne">
             Portfolio
         </h3>
         <span class="fontOverpass description-portfolio">
             Probieren Sie gerne meine neuesten Frontend-Projekte aus und sehen Sie sich deren Code an.
         </span>
         @for (project of projects; track project; let i = $index) {
-            <div class="project-box" [ngClass]="{'reverse': i % 2 !== 0}">
+            <div #projectbox class="project-box" [ngClass]="{'reverse': i % 2 !== 0}">
                 <div class="img-border">
                     <img src="{{project.imgSrc}}" alt="">
                     <img class="arrow-image" src="assets/images/images_portfolio/arrow-portfolio.png" alt="">
@@ -27,7 +27,7 @@
                                 {{project.description}}
                             </p>
                             <div class="project-box-right-box-bottom-links fontOverpass">
-                                <a href="{{project.githubLink}}">
+                                <a target="_blank"  href="{{project.githubLink}}">
                                     Github
                                 </a>
                                 <a target="_blank" href="{{project.liveTestLink}}">

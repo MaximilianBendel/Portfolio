@@ -14,5 +14,5 @@ import { MainContentComponent } from './main-content/main-content.component';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'portfolio';
+  title = 'Maximilian Bendel';
 }

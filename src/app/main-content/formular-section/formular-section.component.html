@@ -1,15 +1,15 @@
 <div class="background-color">
-    <div class="diagonal-background">
+    <div #backgroundDiv class="diagonal-background">
         <div class="wrapper">
             <a class="img-arrow-to-top" href="#top">
                 <img src="assets/images/images_formular/7. arrow.png" alt="">
             </a>
             <div id="formular-section" class="box-headline">
-                <h3 class="fontSyne">
+                <h3 #formularHeadline class="fontSyne">
                     Kontakt
                 </h3>
             </div>
-            <div class="box-formular-all">
+            <div #formularBox class="box-formular-all">
                 <div class="box-before-formular fontOverpass">
                     <p class="box-before-formular-headline-1">
                         Möchten Sie ein Projekt besprechen?
@@ -107,8 +107,10 @@
                                 class="submit-button fontOverpass" type="submit" value="Send message"
                                 [disabled]="!contactData.agreeTerms">
                         </div>
-
                     </form>
+                    <div *ngIf="feedbackMessage" class="feedback-message {{feedbackClass}}">
+                        {{feedbackMessage}}
+                    </div>
                 </div>
             </div>
         </div>
