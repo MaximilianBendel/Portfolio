@@ -24,6 +24,7 @@ export class TranslationService {
       "developer": "Developer",
       "name": "Maximilian Bendel",
       "email": "max.bendel1996@gmail.com",
+      "contactlink": "Contact",
       "scrollDown": {
         "span1": "Scroll",
         "span2": "Down"
@@ -181,6 +182,7 @@ export class TranslationService {
       "frontend": "Frontend",
       "developer": "Entwickler",
       "name": "Maximilian Bendel",
+      "contactlink": "Kontakt",
       "email": "max.bendel1996@gmail.com",
       "scrollDown": {
         "span1": "Scrollen",

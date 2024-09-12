@@ -26,7 +26,6 @@ export class FormularSectionComponent implements OnInit, AfterViewInit {
 
   updateTranslations() {
     this.translations = this.translationService.getTranslations();
-    console.log('Form translations:', this.translations?.form);
   }
 
   http = inject(HttpClient);
