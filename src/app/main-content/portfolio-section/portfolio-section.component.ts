@@ -47,7 +47,7 @@ export class PortfolioSectionComponent implements AfterViewInit, OnDestroy {
           entry.target.classList.remove('visible'); // Optional: remove if not visible
         }
       });
-    }, { threshold: 0.45 });
+    }, { threshold: 0.25 });
 
     // Initially observe elements
     this.observeElements();
