@@ -328,13 +328,21 @@ export class TranslationService {
   private currentLanguage: 'en' | 'de' = 'de';
   private languageChange = new BehaviorSubject<void>(void 0);
 
+  constructor() {
+    const savedLanguage = localStorage.getItem('language') as 'en' | 'de';
+    if (savedLanguage) {
+      this.currentLanguage = savedLanguage;
+    }
+  }
+
   getTranslations() {
     return this.translations[this.currentLanguage];
   }
 
   setLanguage(lang: 'en' | 'de') {
     this.currentLanguage = lang;
-    this.languageChange.next(); // Notify subscribers about language change
+    localStorage.setItem('language', lang);  // Speichern der Sprache im LocalStorage
+    this.languageChange.next();  // Notify subscribers about language change
   }
 
   getLanguageChange() {
