@@ -1,4 +1,5 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { TranslationService } from '../translation.service';
 
 @Component({
   selector: 'app-footer',
@@ -7,13 +8,26 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss'
 })
-export class FooterComponent {
+export class FooterComponent implements OnInit {
+
+  translations: any;
+
+  constructor(private translationService: TranslationService) { }
+
+    ngOnInit() {
+      this.updateTranslations();
+      this.translationService.getLanguageChange().subscribe(() => {
+        this.updateTranslations(); // Update translations when language changes
+      });
+    }
+
+    updateTranslations() {
+      this.translations = this.translationService.getTranslations();
+    }
 
   @ViewChild('backgroundDiv') backgroundDiv!: ElementRef;
   @ViewChild('leftText') leftText!: ElementRef;
   @ViewChild('rightBox') rightBox!: ElementRef;
-
-  constructor() { }
 
   ngAfterViewInit(): void {
     const observer = new IntersectionObserver((entries) => {

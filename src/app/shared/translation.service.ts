@@ -163,7 +163,10 @@ export class TranslationService {
               "text": "The provider is ALL-INKL.COM - Neue Medien Münnich, Inh. René Münnich, Hauptstraße 68, 02742 Friedersdorf. Details can be found in the privacy policy of All-Inkl."
             }
           }
-      }
+        },
+        "footer": {
+            "legalnotice": "Legal Notice"
+          }
 
     },
     de: {
@@ -321,7 +324,10 @@ export class TranslationService {
               "text": "Anbieter ist die ALL-INKL.COM - Neue Medien Münnich, Inh. René Münnich, Hauptstraße 68, 02742 Friedersdorf. Details entnehmen Sie der Datenschutzerklärung von All-Inkl."
             }
           }
-      }
+        },
+          "footer": {
+            "legalnotice": "Datenschutzerklärung"
+          }
     }
   };
 
