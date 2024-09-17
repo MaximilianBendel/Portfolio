@@ -166,7 +166,6 @@
         transition: font-weight 100ms ease-in;
         white-space: nowrap;
         text-align: left;
-        width: 100%;
 
         // Keyframe-Animationen definieren
         @keyframes underlineEffect {
@@ -191,7 +190,7 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 20%;
+            width: 100%;
             height: 2px;
             background: #00BC8F;
             transform: scaleX(0); // Anfangs unsichtbar
@@ -263,7 +262,7 @@
 
     .bottom-box-text {
         display: flex;
-        align-items: center;
+        align-items: baseline;
         flex-direction: column;
     }
 }
@@ -271,6 +270,11 @@
 @media (max-width: 1024px) {
     .wrapper {
         padding: 0px 80px;
+    }
+    .bottom-box-text {
+        a {
+            width: auto;
+        }
     }
 }
 
