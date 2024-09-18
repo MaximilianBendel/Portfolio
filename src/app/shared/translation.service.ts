@@ -248,7 +248,7 @@ export class TranslationService {
             "error": "Bitte geben Sie Ihre Nachricht ein"
           },
           "privacy": {
-            "label1": "Ich habe die  gelesen und stimme der Verarbeitung meiner Daten wie beschrieben zu.",
+            "label1": "Ich habe die",
             "label2": "gelesen und stimme der Verarbeitung meiner Daten wie beschrieben zu.",
             "error": "Bitte akzeptieren Sie die Datenschutzerklärung",
             "linkLegalNotice": "Datenschutzerklärung"
