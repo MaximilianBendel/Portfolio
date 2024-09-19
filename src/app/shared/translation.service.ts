@@ -9,9 +9,9 @@ export class TranslationService {
   private translations = {
     en: {
       "aboutMeHeader": "About Me",
-      "aboutMeText1": "I am a Front-end developer from Munich, Germany. I help designers and companies to bring their ideas to real life. Creativity and logical thinking are skills that I have developed to connect ideas into quality products.",
+      "aboutMeText1": "I am a Front-end developer from Leißling, Germany. I help designers and companies to bring their ideas to real life. Creativity and logical thinking are skills that I have developed to connect ideas into quality products.",
       "aboutMeText2": "If you think I’d be a good match for your projects, contact me!",
-      "location": "Located in Bad Bibra",
+      "location": "Located in Leißling",
       "remoteWork": "Open to remote work",
       "headerLogoAltText": "Logo",
       "aboutMeLink": "About Me",
@@ -171,9 +171,9 @@ export class TranslationService {
     },
     de: {
       "aboutMeHeader": "Über mich",
-      "aboutMeText1": "Ich bin ein Frontend-Entwickler aus Weißenfels, Deutschland. Ich helfe Designern und Unternehmen dabei, ihre Ideen zum Leben zu erwecken. Kreativität und logisches Denken sind Fähigkeiten, die ich entwickelt habe, um Ideen in hochwertige Produkte zu verwandeln.",
+      "aboutMeText1": "Ich bin ein Frontend-Entwickler aus Leißling, Deutschland. Ich helfe Designern und Unternehmen dabei, ihre Ideen zum Leben zu erwecken. Kreativität und logisches Denken sind Fähigkeiten, die ich entwickelt habe, um Ideen in hochwertige Produkte zu verwandeln.",
       "aboutMeText2": "Wenn Sie glauben, dass ich gut zu Ihren Projekten passen würde, kontaktieren Sie mich!",
-      "location": "Wohnhaft in Bad Bibra",
+      "location": "Wohnhaft in Leißling",
       "remoteWork": "Offen für Remote-Arbeit",
       "headerLogoAltText": "Logo",
       "aboutMeLink": "Über mich",
